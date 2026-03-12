@@ -3,97 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAK · Bu Ay Ne Alınır? — Mart 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>CAK · Savaş Gündemi Bülteni — 12 Mart 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #fafaf8;
-  --ink: #18181b;
-  --ink2: #3f3f46;
-  --muted: #71717a;
-  --rule: #e4e4e7;
-  --accent: #1d4ed8;
-  --accent-bg: #eff6ff;
-  --gold: #92400e;
-  --gold-bg: #fffbeb;
-  --red: #991b1b;
-  --red-bg: #fef2f2;
-  --green: #14532d;
-  --green-bg: #f0fdf4;
+  --bg: #111013;
+  --surface: #1a191d;
+  --surface2: #222128;
+  --border: #2e2d33;
+  --border2: #3d3c44;
+  --text: #e8e6f0;
+  --text2: #a09db8;
+  --text3: #6b6880;
+  --accent: #e8b84b;
+  --accent2: #c49830;
+  --red: #e05050;
+  --red-bg: #2a1515;
+  --red-border: #4a2020;
+  --green: #4caf7d;
+  --green-bg: #122318;
+  --green-border: #1e4030;
+  --amber: #e8b84b;
+  --amber-bg: #251f0e;
+  --amber-border: #433618;
+  --blue: #5ba3e0;
+  --blue-bg: #0e1e2e;
+  --blue-border: #1a3650;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   background: var(--bg);
-  color: var(--ink);
+  color: var(--text);
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   line-height: 1.7;
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 0 0 60px;
+  padding: 0 0 80px;
 }
 
-/* ─── HEADER ─── */
-.header {
-  padding: 48px 40px 36px;
-  border-bottom: 2px solid var(--ink);
-}
-.header-kicker {
+/* ─── ALERT BANNER ─── */
+.alert-banner {
+  background: var(--red);
+  color: white;
+  padding: 10px 28px;
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.alert-dot {
+  width: 8px; height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ─── HEADER ─── */
+.header {
+  padding: 40px 40px 32px;
+  border-bottom: 1px solid var(--border);
+}
+.header-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text3);
   margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.header-kicker::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
 }
 .header-title {
-  font-family: 'Lora', serif;
-  font-size: 36px;
-  font-weight: 700;
+  font-family: 'Instrument Serif', serif;
+  font-size: 38px;
+  font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.5px;
+  color: var(--text);
   margin-bottom: 10px;
 }
 .header-title em {
   font-style: italic;
-  font-weight: 400;
+  color: var(--accent);
 }
-.header-sub {
+.header-lead {
   font-size: 14px;
-  color: var(--ink2);
-  margin-bottom: 24px;
-  line-height: 1.55;
-}
-.header-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border: 1px solid var(--rule);
-  color: var(--muted);
-  background: white;
+  color: var(--text2);
+  line-height: 1.65;
+  max-width: 520px;
 }
 
-/* ─── SECTIONS ─── */
+/* ─── TICKER STRIP ─── */
+.ticker-strip {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 40px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+.ticker-item {
+  padding: 0 12px 0 0;
+  border-right: 1px solid var(--border);
+}
+.ticker-item:last-child { border-right: none; padding-right: 0; }
+.ticker-item:first-child { padding-left: 0; }
+.t-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 3px;
+}
+.t-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.2;
+}
+.t-change {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  margin-top: 1px;
+}
+.up { color: var(--green); }
+.dn { color: var(--red); }
+.neut { color: var(--text3); }
+
+/* ─── SECTION ─── */
 .section {
-  padding: 36px 40px;
-  border-bottom: 1px solid var(--rule);
+  padding: 32px 40px;
+  border-bottom: 1px solid var(--border);
 }
 .section-label {
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.15em;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
+  color: var(--text3);
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -102,280 +171,263 @@ body {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--rule);
+  background: var(--border);
 }
 .section-title {
-  font-family: 'Lora', serif;
+  font-family: 'Instrument Serif', serif;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 400;
+  color: var(--text);
   margin-bottom: 16px;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
-/* ─── SUMMARY BOX ─── */
-.summary-box {
-  background: var(--ink);
-  color: #f4f4f5;
-  padding: 24px 28px;
-  margin: 20px 0 8px;
+/* ─── BLOCKS ─── */
+.body-text {
+  font-size: 14.5px;
+  color: var(--text2);
+  line-height: 1.75;
 }
-.summary-box p {
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 10px;
-  color: rgba(244,244,245,0.88);
-}
-.summary-box p:last-child { margin-bottom: 0; }
-.summary-box strong { color: #f4f4f5; font-weight: 600; }
+.body-text p { margin-bottom: 12px; }
+.body-text p:last-child { margin-bottom: 0; }
+.body-text strong { color: var(--text); font-weight: 500; }
 
-/* ─── DATA STRIP ─── */
-.data-strip {
+/* ─── SCENARIO CARDS ─── */
+.scenario-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--rule);
+  gap: 12px;
   margin: 20px 0;
 }
-.data-cell {
-  padding: 16px 18px;
-  border-right: 1px solid var(--rule);
-}
-.data-cell:last-child { border-right: none; }
-.data-cell-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 5px;
-}
-.data-cell-value {
-  font-family: 'Lora', serif;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.1;
-}
-.data-cell-note {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 3px;
-}
-
-/* ─── RISK/OPPORTUNITY CARDS ─── */
-.card-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin: 20px 0;
-}
-.card {
-  padding: 16px 18px;
+.sc-card {
+  padding: 16px 16px;
   border: 1px solid;
 }
-.card-risk {
-  background: var(--red-bg);
-  border-color: #fca5a5;
-}
-.card-opp {
-  background: var(--green-bg);
-  border-color: #86efac;
-}
-.card-label {
+.sc-base { background: var(--amber-bg); border-color: var(--amber-border); }
+.sc-bull { background: var(--green-bg); border-color: var(--green-border); }
+.sc-bear { background: var(--red-bg); border-color: var(--red-border); }
+.sc-label {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
-.card-risk .card-label { color: var(--red); }
-.card-opp .card-label { color: var(--green); }
-.card ul { padding-left: 0; list-style: none; }
-.card ul li {
-  font-size: 13px;
-  line-height: 1.5;
-  padding: 5px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  padding-left: 14px;
-  position: relative;
-  color: var(--ink2);
-}
-.card ul li::before {
-  content: '·';
-  position: absolute;
-  left: 0;
-  color: var(--muted);
-}
-.card ul li:last-child { border-bottom: none; }
-
-/* ─── DECISION TREE ─── */
-.decision-item {
-  display: flex;
-  gap: 18px;
-  margin-bottom: 20px;
-  align-items: flex-start;
-}
-.decision-icon {
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.decision-body { flex: 1; }
-.decision-title {
+.sc-base .sc-label { color: var(--amber); }
+.sc-bull .sc-label { color: var(--green); }
+.sc-bear .sc-label { color: var(--red); }
+.sc-title {
   font-weight: 600;
-  font-size: 15px;
-  margin-bottom: 5px;
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
 }
-.decision-text {
+.sc-body { font-size: 12.5px; color: var(--text2); line-height: 1.55; }
+.sc-petrol {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  margin-top: 8px;
+}
+.sc-base .sc-petrol { color: var(--amber); }
+.sc-bull .sc-petrol { color: var(--green); }
+.sc-bear .sc-petrol { color: var(--red); }
+
+/* ─── TIMELINE ─── */
+.timeline { margin: 20px 0; }
+.tl-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.tl-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  width: 60px;
+  flex-shrink: 0;
+  padding-top: 3px;
+  letter-spacing: 0.05em;
+}
+.tl-body {
+  flex: 1;
+  padding: 10px 14px;
+  border-left: 1px solid var(--border2);
+  margin-bottom: 8px;
+}
+.tl-body:hover { border-left-color: var(--accent); }
+.tl-event {
   font-size: 13.5px;
-  color: var(--ink2);
-  line-height: 1.6;
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 3px;
 }
-.decision-verdict {
-  display: inline-block;
+.tl-detail { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+/* ─── ACTION TABLE ─── */
+.action-item {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-bottom: -1px;
+}
+.action-item:first-child { border-top: 2px solid var(--accent); }
+.action-cat {
+  width: 90px;
+  flex-shrink: 0;
+  padding: 14px 16px;
   font-family: 'DM Mono', monospace;
   font-size: 9.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 2px 8px;
-  margin-top: 8px;
-}
-.verdict-yellow { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
-.verdict-green  { background: var(--green-bg); color: var(--green); border: 1px solid #86efac; }
-.verdict-red    { background: var(--red-bg); color: var(--red); border: 1px solid #fca5a5; }
-.verdict-blue   { background: var(--accent-bg); color: var(--accent); border: 1px solid #93c5fd; }
-
-/* ─── PLAN TABLE ─── */
-.plan-row {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  border: 1px solid var(--rule);
-  margin-bottom: -1px;
-}
-.plan-row:first-child { border-top: 2px solid var(--ink); }
-.plan-label {
-  background: var(--ink);
-  color: white;
-  padding: 14px 16px;
-  font-family: 'DM Mono', monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   display: flex;
   align-items: center;
+  border-right: 1px solid var(--border);
 }
-.plan-content {
+.cat-red { color: var(--red); background: var(--red-bg); }
+.cat-green { color: var(--green); background: var(--green-bg); }
+.cat-amber { color: var(--amber); background: var(--amber-bg); }
+.cat-blue { color: var(--blue); background: var(--blue-bg); }
+.action-body {
+  flex: 1;
   padding: 14px 18px;
-  background: white;
+  background: var(--surface);
 }
-.plan-content-title {
+.action-title {
   font-weight: 600;
   font-size: 13.5px;
+  color: var(--text);
   margin-bottom: 4px;
 }
-.plan-content-bars { display: flex; flex-direction: column; gap: 5px; margin: 8px 0; }
-.bar-row { display: flex; align-items: center; gap: 8px; }
-.bar-label { font-size: 11px; color: var(--muted); width: 120px; flex-shrink: 0; }
-.bar-track { flex: 1; height: 6px; background: var(--rule); position: relative; }
-.bar-fill { height: 100%; position: absolute; left: 0; top: 0; }
-.bar-fill-liq { background: #1d4ed8; }
-.bar-fill-gold { background: #d97706; }
-.bar-fill-eq { background: #059669; }
-.bar-pct { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink2); width: 32px; text-align: right; }
-.plan-note { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 6px; }
+.action-text { font-size: 13px; color: var(--text2); line-height: 1.55; }
 
-/* ─── INSTRUMENTS ─── */
-.instrument-block {
-  margin-bottom: 24px;
-}
-.instrument-title {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.instrument-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--rule);
-}
-.instrument-item {
+/* ─── MARKET TABLE ─── */
+.mkt-row {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 9px 0;
-  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
   font-size: 13.5px;
 }
-.instrument-item:last-child { border-bottom: none; }
-.instrument-name { color: var(--ink2); }
-.instrument-meta {
-  font-family: 'DM Mono', monospace;
-  font-size: 10.5px;
-  color: var(--muted);
-  text-align: right;
-}
-
-/* ─── CHECKLIST ─── */
-.checklist { list-style: none; margin-top: 16px; }
-.checklist li {
-  padding: 10px 0 10px 28px;
-  border-bottom: 1px solid var(--rule);
-  font-size: 14px;
-  position: relative;
-  color: var(--ink2);
-  line-height: 1.55;
-}
-.checklist li:last-child { border-bottom: none; }
-.checklist li::before {
-  content: '○';
-  position: absolute;
-  left: 0;
-  font-size: 13px;
-  color: var(--muted);
-  top: 10px;
-}
-.checklist li strong { color: var(--ink); font-weight: 600; }
-
-/* ─── LINKS ─── */
-.link-list { margin-top: 16px; }
-.link-item {
+.mkt-row:last-child { border-bottom: none; }
+.mkt-asset { color: var(--text2); }
+.mkt-right {
   display: flex;
-  gap: 12px;
-  align-items: baseline;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--rule);
-  font-size: 13px;
+  align-items: center;
+  gap: 16px;
 }
-.link-item:last-child { border-bottom: none; }
-.link-bullet {
+.mkt-value {
   font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  color: var(--muted);
+  font-size: 13px;
+  color: var(--text);
+}
+.mkt-note {
+  font-size: 11.5px;
+  color: var(--text3);
+  text-align: right;
+  min-width: 140px;
+}
+
+/* ─── CALLOUT BOX ─── */
+.callout {
+  border: 1px solid var(--amber-border);
+  background: var(--amber-bg);
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.callout strong { color: var(--accent); }
+
+.callout-red {
+  border: 1px solid var(--red-border);
+  background: var(--red-bg);
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.callout-red strong { color: var(--red); }
+
+.callout-blue {
+  border: 1px solid var(--blue-border);
+  background: var(--blue-bg);
+  padding: 16px 20px;
+  margin: 18px 0;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+.callout-blue strong { color: var(--blue); }
+
+/* ─── PRIORITY LIST ─── */
+.priority-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.priority-item:last-child { border-bottom: none; }
+.priority-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  width: 24px;
   flex-shrink: 0;
   padding-top: 2px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
-.link-item a { color: var(--accent); text-decoration: none; }
-.link-item a:hover { text-decoration: underline; }
-.link-desc { color: var(--muted); font-size: 12px; display: block; margin-top: 1px; }
+.priority-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.priority-text {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* ─── TURKEY SPECIFIC ─── */
+.turkey-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+.tg-item {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.tg-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 6px;
+}
+.tg-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.tg-note { font-size: 12px; color: var(--text2); }
 
 /* ─── FOOTER ─── */
 .footer {
-  padding: 28px 40px;
-  border-top: 2px solid var(--ink);
+  padding: 24px 40px;
+  border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
+  align-items: center;
+  gap: 20px;
   margin-top: 8px;
 }
 .footer-brand {
@@ -383,391 +435,367 @@ body {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
-  white-space: nowrap;
+  color: var(--text3);
 }
 .footer-disc {
   font-size: 11px;
-  color: var(--muted);
-  line-height: 1.55;
+  color: var(--text3);
   text-align: right;
+  line-height: 1.5;
 }
 
-/* ─── CALLOUT ─── */
-.callout {
-  border-left: 3px solid var(--accent);
-  background: var(--accent-bg);
-  padding: 14px 18px;
-  margin: 18px 0;
-  font-size: 13.5px;
-  color: var(--ink2);
-  line-height: 1.6;
-}
-.callout strong { color: var(--ink); }
-
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .header, .section, .footer { padding-left: 20px; padding-right: 20px; }
-  .card-grid { grid-template-columns: 1fr; }
-  .data-strip { grid-template-columns: repeat(2, 1fr); }
-  .data-cell:nth-child(2) { border-right: none; }
-  .data-cell:nth-child(3) { grid-column: span 2; border-top: 1px solid var(--rule); border-right: none; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .ticker-strip { grid-template-columns: repeat(3, 1fr); padding-left: 20px; padding-right: 20px; }
+  .ticker-item:nth-child(3) { border-right: none; }
+  .turkey-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
+<!-- ══════════ ALERT ══════════ -->
+<div class="alert-banner">
+  <div class="alert-dot"></div>
+  Olağandışı Konjonktür Bülteni · Canlı Çatışma Ortamı · 12 Mart 2026
+</div>
+
 <!-- ══════════ HEADER ══════════ -->
 <header class="header">
   <div class="header-kicker">CAK · Kişisel Araştırma Notu</div>
-  <h1 class="header-title">Bu Ay Ne Alınır?<br><em>Mart 2026 Konjonktür Rehberi</em></h1>
-  <p class="header-sub">
-    Ay başında sorulan "bu ay ne yapalım?" sorusuna risk/fırsat çerçevesi ve pratik seçenekler menüsüyle yanıt. Herhangi bir kurumu temsil etmez, yatırım tavsiyesi değildir.
+  <h1 class="header-title">Savaş Gündemi:<br><em>Ne Oluyor, Ne Yapalım?</em></h1>
+  <p class="header-lead">
+    28 Şubat'ta başlayan ABD-İsrail–İran çatışması, Hürmüz Boğazı'nı fiilen kapattı ve küresel piyasaları yapısal olarak değiştirdi. Bu bülten geçici bir piyasa gürültüsü notası değil — yeni gerçekliği ve yapılması gerekenleri özetleme denemesidir.
   </p>
-  <div class="header-tags">
-    <span class="tag">BES / BEFAS</span>
-    <span class="tag">TEFAS</span>
-    <span class="tag">Gayrimenkul</span>
-    <span class="tag">Altın · Emtia</span>
-    <span class="tag">Hisse</span>
-    <span class="tag">09 Mar 2026</span>
-  </div>
 </header>
 
-<!-- ══════════ YÖNETİCİ ÖZETİ ══════════ -->
-<section class="section">
-  <div class="section-label">Yönetici Özeti · 30 saniye</div>
-
-  <div class="data-strip">
-    <div class="data-cell">
-      <div class="data-cell-label">TCMB Politika Faizi</div>
-      <div class="data-cell-value">%37</div>
-      <div class="data-cell-note">Ocak'ta 100bp indirildi</div>
-    </div>
-    <div class="data-cell">
-      <div class="data-cell-label">Mart PPK Kararı</div>
-      <div class="data-cell-value">12 Mar</div>
-      <div class="data-cell-note">38 ekonomistten 37'si: sabit</div>
-    </div>
-    <div class="data-cell">
-      <div class="data-cell-label">2026 Yıl Sonu Beklentisi</div>
-      <div class="data-cell-value">%30</div>
-      <div class="data-cell-note">Analist medyanı</div>
-    </div>
+<!-- ══════════ TICKER ══════════ -->
+<div class="ticker-strip">
+  <div class="ticker-item">
+    <div class="t-label">Brent Petrol</div>
+    <div class="t-value">~$93</div>
+    <div class="t-change up">▲ +%30 (1 hafta)</div>
   </div>
+  <div class="ticker-item">
+    <div class="t-label">Ons Altın</div>
+    <div class="t-value">$5.155</div>
+    <div class="t-change dn">▼ Tepedeki volatil</div>
+  </div>
+  <div class="ticker-item">
+    <div class="t-label">Gram Altın</div>
+    <div class="t-value">~7.310₺</div>
+    <div class="t-change neut">— Kur etkili</div>
+  </div>
+  <div class="ticker-item">
+    <div class="t-label">USD/TRY</div>
+    <div class="t-value">~44,07</div>
+    <div class="t-change dn">▼ TCMB müdahale</div>
+  </div>
+  <div class="ticker-item">
+    <div class="t-label">BIST 100</div>
+    <div class="t-value">~12.985</div>
+    <div class="t-change dn">▼ Satıcılı seyir</div>
+  </div>
+</div>
 
-  <div class="summary-box">
-    <p><strong>Ana tema:</strong> TCMB indirim patikasında ama Mart'ta duraksaması bekleniyor. Küresel enerji şoku ve tarife belirsizliği enflasyon yapışkanlığını canlı tutuyor. Bu ayın stratejik tonu: "Aceleci alım değil, konumlanma."</p>
-    <p><strong>Gayrimenkul:</strong> Konut fiyatları nominal artıyor, reel getiri zayıf. Kredi maliyeti caydırıcı. Peşin + iskontolu fırsat + kira getirisi üçü bir arada olmadan bu ay geçmek mantıklı.</p>
-    <p><strong>BES:</strong> Fon dağılımı "para piyasası / borçlanma + altın/emtia + hisse" dengesiyle kademeli kurulmalı. BEFAS fon genişliği avantajı değerlendirilmeli.</p>
-    <p><strong>Artan sermaye için:</strong> Tek seçim yapma — 3'lü yapı: (1) likidite tamponu, (2) jeopolitik şoka karşı emtia/altın hedge, (3) kademeli, seçici hisse/fon.</p>
+<!-- ══════════ BÖLÜM 1: NELER OLDU ══════════ -->
+<section class="section">
+  <div class="section-label">Bölüm 1 · Sahada Ne Oluyor?</div>
+  <h2 class="section-title">İki Cephe, Bir Kriz: Kronoloji</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">28 Şub</div>
+      <div class="tl-body">
+        <div class="tl-event">ABD–İsrail, İran'a hava harekâtı başlattı</div>
+        <div class="tl-detail">Petrol o gün ~$70/varildi. Tahran'da petrol depoları, askeri tesisler hedef alındı.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">02 Mar</div>
+      <div class="tl-body">
+        <div class="tl-event">İran Hürmüz Boğazı'nı fiilen kapattı</div>
+        <div class="tl-detail">Devrim Muhafızları komutanı: geçmeye çalışan gemiler hedef alınacak. 16 mayın gemisi ABD'ce imha edildi. Basra Körfezi'nde 14 gemi vuruldu.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">09 Mar</div>
+      <div class="tl-body">
+        <div class="tl-event">Brent $120'a dayandı — ardından $90'a geriledi</div>
+        <div class="tl-detail">Trump "savaş yakında bitecek" açıklaması fiyatı bastırdı. Ancak Hürmüz hala kapalı. IEA 400 milyon varil acil rezerv serbest bırakma kararı aldı.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">09 Mar</div>
+      <div class="tl-body">
+        <div class="tl-event">Putin–Trump telefon görüşmesi</div>
+        <div class="tl-detail">Ukrayna müzakereleri Orta Doğu nedeniyle süresiz ertelendi. Ukrayna-Rusya üçlü görüşmesi askıya alındı.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">11 Mar</div>
+      <div class="tl-body">
+        <div class="tl-event">TürkAkım ve Mavi Akım'a 12 saldırı girişimi</div>
+        <div class="tl-detail">Gazprom: Ukrayna, güney Rusya'daki kompresör istasyonlarına İHA saldırısı düzenledi. Saldırılar püskürtüldü. Hürmüz'de 15 Türk gemisi var.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">12 Mar</div>
+      <div class="tl-body">
+        <div class="tl-event">TCMB PPK kararı — bugün</div>
+        <div class="tl-detail">38 ekonomistten 37'si: faiz sabit (%37). Savaş etkisiyle TCMB zaten TL savunması için ~$12 milyar harcadı. Net rezerv 78,4 milyar dolar.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ══════════ RİSK / FIRSAT ══════════ -->
+<!-- ══════════ BÖLÜM 2: ENERJİ ŞİFRELEMESİ ══════════ -->
 <section class="section">
-  <div class="section-label">Bu Ayın Haritası</div>
-  <h2 class="section-title">Risk ve Fırsat Çerçevesi</h2>
+  <div class="section-label">Bölüm 2 · Enerji Şokunun Haritası</div>
+  <h2 class="section-title">Hürmüz Kapandığında Dünya Titriyor</h2>
 
-  <div class="card-grid">
-    <div class="card card-risk">
-      <div class="card-label">⚠ Riskler</div>
-      <ul>
-        <li>Tarife/enerji şoku enflasyona yansırsa faiz indirimi gecikir</li>
-        <li>TL kur oynaklığı — ani dış şoklarda TL varlıklarda değer kaybı</li>
-        <li>Kredili yatırımda yüksek finansman maliyeti hata payını büyütüyor</li>
-        <li>Büyük para hareketi öncesi yanlış zamanlama riski</li>
-        <li>Jeopolitik risk (enerji koridorları, bölgesel gerilimler)</li>
-      </ul>
+  <div class="body-text">
+    <p><strong>Neden bu kadar kritik?</strong> Hürmüz Boğazı'ndan günde ~20 milyon varil ham petrol ve büyük miktarda LNG geçiyor. Bu, küresel petrol arzının yaklaşık beşte biri. Yıllık ekonomik değeri ~600 milyar dolar. Katar LNG ihracatının neredeyse tamamı bu boğazdan; Avrupa, Rusya-Ukrayna sonrası LNG bağımlılığını zaten artırmıştı.</p>
+    <p>Basra Körfezi'nde sıkışan ~15 milyon varil petrol var. Irak ve Kuveyt üretimi kısmaya başladı. Alternatif boru hatlarının toplam kapasitesi günlük ~5 milyon varil — kesintinin üçte birinden azını karşılıyor.</p>
+  </div>
+
+  <div class="scenario-grid">
+    <div class="sc-card sc-base">
+      <div class="sc-label">▲ Baz Senaryo (%50)</div>
+      <div class="sc-title">Kısa Süreli Çatışma</div>
+      <div class="sc-body">2–4 hafta içinde ateşkes. Boğaz kısmen açılıyor. Üretim kesintileri nisan başında zirve, sonra kademeli toparlanma.</div>
+      <div class="sc-petrol">Brent: $90–105/varil</div>
     </div>
-    <div class="card card-opp">
-      <div class="card-label">✦ Fırsatlar</div>
-      <ul>
-        <li>Para piyasasında "beklerken kazan" — fırsat maliyeti düşük</li>
-        <li>TCMB indirim patikası netleştikçe uzun tahvil/bono değer kazanır</li>
-        <li>Altın/emtia jeopolitik hedge işlevi görüyor</li>
-        <li>Seçici hisse: temettü + değer + bilanço dayanıklılığı filtresiyle defansif sepet</li>
-        <li>Gayrimenkulde nakit alıcı iskonto avantajı</li>
-      </ul>
+    <div class="sc-card sc-bull">
+      <div class="sc-label">→ İyimser (%20)</div>
+      <div class="sc-title">Diplomatik Çözüm Hızlı</div>
+      <div class="sc-body">Trump anlaşmayı hızlandırıyor, müzakere masası kurulduğu anda boğaz açılıyor. Piyasalar hızla normalize.</div>
+      <div class="sc-petrol">Brent: $75–90/varil</div>
+    </div>
+    <div class="sc-card sc-bear">
+      <div class="sc-label">▼ Kötümser (%30)</div>
+      <div class="sc-title">Uzun Süreli Kapanma</div>
+      <div class="sc-body">Çatışma 2+ ay sürerse Suudi ve BAE depoları tükenir, Körfez üretimi toplamda ~10 milyon varil düşer.</div>
+      <div class="sc-petrol">Brent: $130–150+/varil</div>
+    </div>
+  </div>
+
+  <div class="callout-red">
+    <strong>Türkiye İçin Kritik Nokta:</strong> Hürmüz'de 15 Türk gemisi var. Enerji ithalatçısı Türkiye için petrol şoku doğrudan cari açık baskısı ve enflasyon anlamına geliyor. TCMB'nin ~$12 milyar dolarlık döviz müdahalesi rezerv erimesini hızlandırıyor. İran petrolüne kısmen bağlı Türk rafinerileri alternatiflere yöneliyor — kısa vadede ek maliyet yükü var.
+  </div>
+</section>
+
+<!-- ══════════ BÖLÜM 3: PİYASA TABLO ══════════ -->
+<section class="section">
+  <div class="section-label">Bölüm 3 · Piyasalarda Son Tablo</div>
+  <h2 class="section-title">Savaş Ortamında Varlık Sınıfları</h2>
+
+  <div class="mkt-row">
+    <span class="mkt-asset">Brent Ham Petrol</span>
+    <div class="mkt-right">
+      <span class="mkt-value up">~$93/varil</span>
+      <span class="mkt-note">Şubat sonu $70'ti. Zirve $120'a dayandı.</span>
+    </div>
+  </div>
+  <div class="mkt-row">
+    <span class="mkt-asset">Ons Altın</span>
+    <div class="mkt-right">
+      <span class="mkt-value">$5.155</span>
+      <span class="mkt-note">Tepede $5.400 gördü, şimdi geri çekildi.</span>
+    </div>
+  </div>
+  <div class="mkt-row">
+    <span class="mkt-asset">Gram Altın (TL)</span>
+    <div class="mkt-right">
+      <span class="mkt-value">~7.310 ₺</span>
+      <span class="mkt-note">Kur baskısı + ons düşüşü eş zamanlı.</span>
+    </div>
+  </div>
+  <div class="mkt-row">
+    <span class="mkt-asset">Gümüş (Comex)</span>
+    <div class="mkt-right">
+      <span class="mkt-value dn">~$81,66/ons</span>
+      <span class="mkt-note">Zirveden %9 geriledi. Endüstriyel talep endişesi.</span>
+    </div>
+  </div>
+  <div class="mkt-row">
+    <span class="mkt-asset">USD/TRY</span>
+    <div class="mkt-right">
+      <span class="mkt-value">~44,07 ₺</span>
+      <span class="mkt-note">TCMB ~$12 milyar harcayarak baskıladı.</span>
+    </div>
+  </div>
+  <div class="mkt-row">
+    <span class="mkt-asset">BIST 100</span>
+    <div class="mkt-right">
+      <span class="mkt-value dn">~12.985</span>
+      <span class="mkt-note">Bankacılık, madencilik öne çıkan kaybedenler.</span>
+    </div>
+  </div>
+  <div class="mkt-row">
+    <span class="mkt-asset">Bitcoin</span>
+    <div class="mkt-right">
+      <span class="mkt-value">~$70.800</span>
+      <span class="mkt-note">Haftalık bazda ~%5 artış korunuyor.</span>
     </div>
   </div>
 
   <div class="callout">
-    <strong>12 Mart PPK'yı bekle:</strong> Faiz kararı ve politika metninden gelecek sinyaller, ay içi kısa tahvil/bono ve döviz pozisyonlamalarını doğrudan etkiler. Karardan önce büyük hamleler yapmak zamanlama riskini artırır.
+    <strong>Altın Neden Düşüyor, Savaş Varken?</strong> Klasik refleks tersine döndü: dolar endeksi (DXY) 102,4'e fırladı; "nakit kraldır" moduna geçen büyük fonlar margin call için altın satıp nakde döndü. Ons $5.400'de aşırı alım bölgesindeydi — teknik kar realizasyonu zorunluluğu bunu tetikledi. Uzun vadeli tez bozulmadı; bu geri çekilme "alım penceresi" olarak değerlendirilebilir.
   </div>
 </section>
 
-<!-- ══════════ KARAR AĞACI ══════════ -->
+<!-- ══════════ BÖLÜM 4: TÜRKİYE ETKİSİ ══════════ -->
 <section class="section">
-  <div class="section-label">Karar Ağacı</div>
-  <h2 class="section-title">BES mi · Gayrimenkul mü · Altın mı · Hisse mi?</h2>
+  <div class="section-label">Bölüm 4 · Türkiye'ye Özel Etki</div>
+  <h2 class="section-title">Yurt İçinde Durum</h2>
 
-  <div class="decision-item">
-    <div class="decision-icon">🏛</div>
-    <div class="decision-body">
-      <div class="decision-title">BES (Uzun Vade, Düzenli Birikim)</div>
-      <div class="decision-text">Her ay işlem yapılacak alan değil; ama her ay <em>fon dağılımı</em> gözden geçirilmeli. BEFAS aracılığıyla farklı şirket fonlarına erişim artık mümkün. Bu ay önerilen çerçeve: para piyasası/borçlanma çekirdeği + altın/emtia hedge + kademeli hisse. Fon değişikliklerini planın izin verdiği limitlerde tut.</div>
-      <span class="decision-verdict verdict-green">✓ Her ay gözden geçir</span>
+  <div class="turkey-grid">
+    <div class="tg-item">
+      <div class="tg-label">TCMB Politika Faizi</div>
+      <div class="tg-value">%37</div>
+      <div class="tg-note">PPK bugün — beklenti: sabit</div>
+    </div>
+    <div class="tg-item">
+      <div class="tg-label">TCMB Savaş Müdahalesi</div>
+      <div class="tg-value">~$12 milyar</div>
+      <div class="tg-note">Rezervin ~%15'i harcandı</div>
+    </div>
+    <div class="tg-item">
+      <div class="tg-label">Net Döviz Rezervi</div>
+      <div class="tg-value">78,4 milyar $</div>
+      <div class="tg-note">Swap hariç; altın ile ~$200 milyar</div>
+    </div>
+    <div class="tg-item">
+      <div class="tg-label">TürkAkım / Mavi Akım</div>
+      <div class="tg-value">Risk Altında</div>
+      <div class="tg-note">12 İHA saldırısı önlendi, hat sağlam</div>
     </div>
   </div>
 
-  <div class="decision-item">
-    <div class="decision-icon">🏗</div>
-    <div class="decision-body">
-      <div class="decision-title">Gayrimenkul — Bu Ayın Kısa Cevabı</div>
-      <div class="decision-text">Karar ufku 3–10 yıl olduğundan "aylık trade" değil. Konut fiyatları nominal artıyor ama enflasyon düzeltmesinde reel getiri zayıf. Dört koşul birlikte sağlanmıyorsa bu ay geç: <strong>(1)</strong> Peşin/az kredi + belirgin iskonto, <strong>(2)</strong> net kira getirisi tatmin edici, <strong>(3)</strong> hukuki/teknik durum temiz, <strong>(4)</strong> 12 aylık likidite tamponu elle kalıyor.</div>
-      <span class="decision-verdict verdict-yellow">▲ Fırsata göre — krediyle değil</span>
-    </div>
+  <div class="body-text">
+    <p>Türkiye bu krizde farklı açılardan baskı altında: enerji ithalatçısı olarak petrol şokundan doğrudan etkileniyor, TCMB rezerv eritiyor, TürkAkım'a tehdit var. Öte yandan arabulucu rolü ("diyalog temelli tutum") ve TürkAkım güvenliği stratejik değer kazandırıyor.</p>
+    <p>Enflasyon dezenflasyon sürecinin petrol fiyatı yüksek kalırsa sekteye uğrama riski var. %100 dolar bazlı enerji ithalatı olan Türkiye'de $93 petrol ile $70 petrol arasındaki fark doğrudan cari açığa ve TL'ye yansıyor.</p>
   </div>
 
-  <div class="decision-item">
-    <div class="decision-icon">🪙</div>
-    <div class="decision-body">
-      <div class="decision-title">Altın / Emtia</div>
-      <div class="decision-text">Jeopolitik ve enerji şoku senaryosunda portföy sigortası işlevi görüyor. Kısa vadede oynak olabilir; tek hamlede büyük alım yerine sistematik birikim daha sağlıklı. BES içinde altın/kıymetli maden BYF veya TEFAS'ta ilgili tema üzerinden erişilebilir.</div>
-      <span class="decision-verdict verdict-green">✓ Sistematik, kademeli birikim</span>
-    </div>
-  </div>
-
-  <div class="decision-item">
-    <div class="decision-icon">📊</div>
-    <div class="decision-body">
-      <div class="decision-title">Hisse / Tematik Fon</div>
-      <div class="decision-text">Bu ay "tüm piyasa" değil, "seçici" yaklaşım. Filtre: temettü verimi + değerleme disiplini + bilanço dayanıklılığı. Alım aylık bütçeyi 3–4 haftaya bölerek kademeli yapılmalı. Piyasa hareketine göre panik alım/satıştan kaçın.</div>
-      <span class="decision-verdict verdict-blue">→ Kademeli · Seçici · DCA</span>
-    </div>
+  <div class="callout-blue">
+    <strong>12 Mart PPK Sonrası Ne Olur?</strong> Faiz sabit kalırsa büyük sürpriz yok. Asıl politika metnine bak: Eğer "enflasyon beklentileri yukarı yönlü risk taşıyor" ifadesi varsa indirim patikası yavaşlayabilir. Bu tahvil/bono tutanlar ve döviz pozisyonu hesaplayanlar için kritik sinyal.
   </div>
 </section>
 
-<!-- ══════════ PLANLAR ══════════ -->
+<!-- ══════════ BÖLÜM 5: NE YAPALIM ══════════ -->
 <section class="section">
-  <div class="section-label">3 Hazır Plan</div>
-  <h2 class="section-title">Risk Profiline Göre Aylık Dağılım Şablonları</h2>
-  <p style="font-size:13.5px; color:var(--muted); margin-bottom:20px;">Yüzdeler başlangıç şablonudur; hedef vade, gelir ihtiyacı ve risk toleransına göre uyarlanmalıdır.</p>
+  <div class="section-label">Bölüm 5 · Pratik Çerçeve</div>
+  <h2 class="section-title">Savaş Ortamında Portföy Tutumu</h2>
 
-  <div class="plan-row">
-    <div class="plan-label">Plan A<br>Temkinli</div>
-    <div class="plan-content">
-      <div class="plan-content-title">Koruma önce, büyüme sonra</div>
-      <div class="plan-content-bars">
-        <div class="bar-row">
-          <span class="bar-label">Para Piy. / Bono</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-liq" style="width:70%"></div></div>
-          <span class="bar-pct">%70</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Altın / Emtia</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:20%"></div></div>
-          <span class="bar-pct">%20</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Hisse / Fon</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-eq" style="width:10%"></div></div>
-          <span class="bar-pct">%10</span>
-        </div>
-      </div>
-      <div class="plan-note">Hisseyi 4 haftaya böl (DCA). Volatilite yükselirse hisse dilimini küçült.</div>
+  <div class="body-text" style="margin-bottom:20px;">
+    <p>Kriz dönemlerinde en büyük tehlike <strong>panikle büyük hareket yapmak</strong>. İkinci tehlike ise <strong>hiçbir şey yapmamak</strong>. Doğru yer: plan çerçevesinde kalmak, ancak gerçekliği güncellemek.</p>
+  </div>
+
+  <div class="action-item">
+    <div class="action-cat cat-red">Acil Kontrol</div>
+    <div class="action-body">
+      <div class="action-title">Kaldıraçlı ve yüksek riskli pozisyonları gözden geçir</div>
+      <div class="action-text">Savaş + enflasyon + faiz belirsizliği üçlüsü kaldıraçlı yapıları iki yönlü vurur. Bekleyen likiditasyon planı varsa ortam değişti — bu hafta revize etmek yerinde.</div>
     </div>
   </div>
 
-  <div class="plan-row">
-    <div class="plan-label">Plan B<br>Dengeli</div>
-    <div class="plan-content">
-      <div class="plan-content-title">Büyüme ile korumayı dengele</div>
-      <div class="plan-content-bars">
-        <div class="bar-row">
-          <span class="bar-label">Para Piy. / Bono</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-liq" style="width:45%"></div></div>
-          <span class="bar-pct">%45</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Altın / Emtia</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:20%"></div></div>
-          <span class="bar-pct">%20</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Hisse / Fon</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-eq" style="width:35%"></div></div>
-          <span class="bar-pct">%35</span>
-        </div>
-      </div>
-      <div class="plan-note">Aylık rebalancing. ±%5 sapmada dengele. Kademeli hisse girişi.</div>
+  <div class="action-item">
+    <div class="action-cat cat-amber">Bekle &amp; İzle</div>
+    <div class="action-body">
+      <div class="action-title">Altın geri çekilmesini soğukkanlı değerlendir</div>
+      <div class="action-text">Ons $5.000 altına sarkma ihtimalinde alım penceresi açılabilir. Fiyatın en dipte yakalanmasını bekleme — sistematik birikim mantığını koru. Kriz ortamında fiziksel, ekran fiyatından primli seyrediyor.</div>
     </div>
   </div>
 
-  <div class="plan-row">
-    <div class="plan-label">Plan C<br>Agresif</div>
-    <div class="plan-content">
-      <div class="plan-content-title">Büyüme ağırlıklı — kaldıraçsız</div>
-      <div class="plan-content-bars">
-        <div class="bar-row">
-          <span class="bar-label">Para Piy. / Bono</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-liq" style="width:25%"></div></div>
-          <span class="bar-pct">%25</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Altın / Emtia</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:15%"></div></div>
-          <span class="bar-pct">%15</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Hisse / Tematik</span>
-          <div class="bar-track"><div class="bar-fill bar-fill-eq" style="width:60%"></div></div>
-          <span class="bar-pct">%60</span>
-        </div>
-      </div>
-      <div class="plan-note">2 haftada bir kontrol. ±%7–10 sapmada dengele. Kaldıraçlı ürünlerden kaçın.</div>
+  <div class="action-item">
+    <div class="action-cat cat-amber">Bekle &amp; İzle</div>
+    <div class="action-body">
+      <div class="action-title">Gümüşte sabırlı ol</div>
+      <div class="action-text">Çatışmanın endüstriyel talep kaygısıyla $81 civarına çekilmesi birikim için daha uygun fiyat anlamına geliyor. Ancak Çin yavaşlama riski gerçek — büyük tek hamleler yerine küçük kademeli alım mantığı korunmalı.</div>
     </div>
+  </div>
+
+  <div class="action-item">
+    <div class="action-cat cat-blue">Fırsat</div>
+    <div class="action-body">
+      <div class="action-title">Enerji sektörü: hem risk hem fırsat</div>
+      <div class="action-text">Petrol fiyatı yüksek kaldığı sürece enerji/rafineri sektörü nakit akışı ve temettü cephesinde güçlü görünür. Ama "ne kadar sürer?" sorusu cevaplanamıyor — büyük pozisyon için erken, izleme için doğru zaman.</div>
+    </div>
+  </div>
+
+  <div class="action-item">
+    <div class="action-cat cat-green">Koru</div>
+    <div class="action-body">
+      <div class="action-title">Likidite tamponunu dokunmadan tut</div>
+      <div class="action-text">3–6 aylık harcama tamponunu bu ortamda azaltma. "Piyasa düştü, al" refleksiyle acil fona el atma. Belirsizlik uzadığında likit olanlar en güçlü pozisyondadır.</div>
+    </div>
+  </div>
+
+  <div class="action-item">
+    <div class="action-cat cat-green">Koru</div>
+    <div class="action-body">
+      <div class="action-title">BES / uzun vade — kısa vadeli gürültüye yanıt verme</div>
+      <div class="action-text">BES fon dağılımını savaş haberlerine göre sık değiştirme. Aylık prim yatırımına devam. Uzun vadeli birikim aracında kısa vadeli oynaklık yapısal zarara neden olmaz — panik satışı yapar.</div>
+    </div>
+  </div>
+
+  <div class="callout-red" style="margin-top:20px;">
+    <strong>Bu Dönemde Yapılmaması Gerekenler:</strong> Kredili yatırım. Tek bir varlık sınıfına büyük konsantrasyon. "Savaş biter biter, altın uçar" veya "her şey batar" gibi kesin senaryolara göre büyük hamleler. Günlük habere göre portföy sıfırlama.
   </div>
 </section>
 
-<!-- ══════════ ARAÇLAR ══════════ -->
+<!-- ══════════ BÖLÜM 6: TAKİP LİSTESİ ══════════ -->
 <section class="section">
-  <div class="section-label">Bu Ayın Araçları</div>
-  <h2 class="section-title">BIST · TEFAS · BEFAS — Pratik Seçim Çerçevesi</h2>
+  <div class="section-label">Bölüm 6 · Önümüzdeki 2 Hafta</div>
+  <h2 class="section-title">Kritik Gündem Kalemleri</h2>
 
-  <div class="instrument-block">
-    <div class="instrument-title">BIST — Hisse Tarafı Metrik İzleme</div>
-    <div class="instrument-item">
-      <span class="instrument-name">Enerji / Rafineri sektörü</span>
-      <span class="instrument-meta">Nakit akışı + temettü takibi</span>
-    </div>
-    <div class="instrument-item">
-      <span class="instrument-name">Otomotiv / İhracat sektörü</span>
-      <span class="instrument-meta">Döviz geliri · sanayi kalitesi</span>
-    </div>
-    <div class="instrument-item">
-      <span class="instrument-name">Taahhüt / Enerji (defansif yapı)</span>
-      <span class="instrument-meta">Düşük döngüsellik</span>
-    </div>
-    <div class="instrument-item">
-      <span class="instrument-name">Bankacılık sektörü</span>
-      <span class="instrument-meta">F/K + sermaye yeterliliği izleme</span>
-    </div>
-    <p style="font-size:12px; color:var(--muted); margin-top:12px;">
-      Takip yöntemi: BIST100 bileşen ekranından F/K, temettü verimi ve özkaynak karlılığı filtrele → "en sağlam 10" listesini her ay güncelle. Spesifik hisse kararı bireysel analizle verilmelidir.
-    </p>
-  </div>
-
-  <div class="instrument-block">
-    <div class="instrument-title">TEFAS — Bu Ayın 3 Tema Seçeneği</div>
-    <div class="instrument-item">
-      <span class="instrument-name">Para Piyasası Fonu (PPF)</span>
-      <span class="instrument-meta">Likidite bacağı · "beklerken kazan"</span>
-    </div>
-    <div class="instrument-item">
-      <span class="instrument-name">Altın / Kıymetli Maden Teması</span>
-      <span class="instrument-meta">Hedge bacağı · jeopolitik koruma</span>
-    </div>
-    <div class="instrument-item">
-      <span class="instrument-name">Küresel Teknoloji / Tematik (Yüksek Risk)</span>
-      <span class="instrument-meta">Kur + sektör teması · kademeli giriş</span>
-    </div>
-    <div class="callout" style="margin-top:14px;">
-      Fon seçiminde <strong>tek metrik yetmez.</strong> Son 1Y + 3Y getiri, risk seviyesi (standart sapma), yönetim ücreti ve fonun endeks/aktif yönetim yapısını birlikte değerlendir.
+  <div class="priority-item">
+    <div class="priority-num">01</div>
+    <div>
+      <div class="priority-title">Hürmüz Boğazı'nda trafik sinyalleri</div>
+      <div class="priority-text">Kısmi geçiş başlarsa ya da ABD eskort operasyonu tanker akışını yeniden açarsa petrol hızla $75–80'e geri çekilebilir. Bu, enflasyon beklentilerini yumuşatır ve altını tekrar destekler. En kritik değişken bu.</div>
     </div>
   </div>
 
-  <div class="instrument-block">
-    <div class="instrument-title">BEFAS / BES — Bu Ayın Pratik Hamlesi</div>
-    <p style="font-size:13.5px; color:var(--ink2); line-height:1.65;">
-      BES tarafında bu ay "mükemmel fon" aramak yerine <strong>dağılım disiplinini kurmak</strong> daha değerli. Çerçeve: <em>para piyasası/borçlanma çekirdeği + altın hedge + kademeli hisse.</em> BEFAS, farklı emeklilik şirketlerinin fonlarına erişim sağlayabilir — plan/ürün kısıtları geçerlidir, kendi planını kontrol et.
-    </p>
-  </div>
-
-  <!-- Örnek BES Dağılımları -->
-  <div style="background:white; border:1px solid var(--rule); padding:20px 22px; margin-top:8px;">
-    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:14px;">BES Örnek Dağılımlar (Şablon)</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-      <div>
-        <div style="font-weight:600; font-size:13px; margin-bottom:8px; color:var(--ink);">Muhafazakâr BES</div>
-        <div style="font-size:13px; color:var(--ink2); line-height:1.8;">
-          %60 Para piy. / borçlanma<br>
-          %20 Altın / kıymetli maden<br>
-          %20 Hisse
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:600; font-size:13px; margin-bottom:8px; color:var(--ink);">Agresif BES</div>
-        <div style="font-size:13px; color:var(--ink2); line-height:1.8;">
-          %30 Para piy. / borçlanma<br>
-          %20 Altın / kıymetli maden<br>
-          %50 Hisse / tematik
-        </div>
-      </div>
+  <div class="priority-item">
+    <div class="priority-num">02</div>
+    <div>
+      <div class="priority-title">12 Mart TCMB PPK metni — bugün</div>
+      <div class="priority-text">"Enflasyon beklentileri yukarı yönlü risk" ifadesinin varlığı veya yokluğu, indirim takvimini yeniden çizer. Sonuç ve metin öğleden sonra açıklanıyor.</div>
     </div>
   </div>
-</section>
 
-<!-- ══════════ KONTROl LİSTESİ ══════════ -->
-<section class="section">
-  <div class="section-label">Bu Ayın Kontrol Listesi</div>
-  <h2 class="section-title">Karar Öncesi 6 Adım</h2>
+  <div class="priority-item">
+    <div class="priority-num">03</div>
+    <div>
+      <div class="priority-title">ABD enflasyon verisi (CPI) — yakın dönem</div>
+      <div class="priority-text">$90+ petrolün ABD enflasyonunu %3'ün üzerine taşıması durumunda Fed indirim beklentisi ertelenebilir. Bu, büyüme hisseleri ve altın üzerinde ek baskı yaratır.</div>
+    </div>
+  </div>
 
-  <ul class="checklist">
-    <li><strong>12 Mart PPK sonucunu bekle.</strong> Faiz kararı ve politika metni, ay içi tahvil/bono ve kur pozisyonlamalarını doğrudan etkiler.</li>
-    <li><strong>Nakit tamponu koru.</strong> 3–6 aylık harcama / taksit karşılığı likit tutuluyor mu? Yatırıma geçmeden önce bu satırı işaretle.</li>
-    <li><strong>Kademeli alım.</strong> Hisse ve tematik fonlarda tek seferlik büyük alım yerine aylık bütçeyi 3–4 haftaya böl.</li>
-    <li><strong>Gayrimenkulde krediyi sorgula.</strong> Finansman maliyeti mevcut kira getirisini net geçiyor mu? Geçmiyorsa bu ay bekle.</li>
-    <li><strong>BES fon dağılımını kontrol et.</strong> Ay başında bir kez bak, yılda birkaç kez stratejik değişiklikle yetin.</li>
-    <li><strong>Kaldıraçlı ürünlerden uzak dur.</strong> Yüksek faiz + jeopolitik belirsizlik ortamında kaldıraçlı yapılar volatiliteyi katlar; asimetrik zarar riski taşır.</li>
-  </ul>
-</section>
+  <div class="priority-item">
+    <div class="priority-num">04</div>
+    <div>
+      <div class="priority-title">Ukrayna–Rusya müzakeresi yeniden başlar mı?</div>
+      <div class="priority-text">İran cephesi yatışırsa Washington'ın dikkati Ukrayna'ya döner. TürkAkım güvenliği ve Karadeniz enerji koridorları için bu sürecin seyri Türkiye açısından belirleyici.</div>
+    </div>
+  </div>
 
-<!-- ══════════ KAYNAKLAR ══════════ -->
-<section class="section">
-  <div class="section-label">Kaynak Bağlantıları</div>
-  <h2 class="section-title">Okuma ve Araştırma İçin</h2>
-
-  <div class="link-list">
-    <div class="link-item">
-      <span class="link-bullet">TCMB</span>
-      <div>
-        <a href="https://www.tcmb.gov.tr/wps/wcm/connect/EN/TCMB+EN/Main+Menu/Announcements/Press+Releases/2026/ANO2026-01" target="_blank">TCMB Politika Faizi Kararı — Ocak 2026</a>
-        <span class="link-desc">Güncel politika faizi ve PPK karar metni</span>
-      </div>
-    </div>
-    <div class="link-item">
-      <span class="link-bullet">TCMB</span>
-      <div>
-        <a href="https://www.tcmb.gov.tr/wps/wcm/connect/EN/TCMB+EN/Main+Menu/Statistics/Real+Sector+Statistics/Residential+Property+Price+Index/" target="_blank">Konut Fiyat Endeksi (RPPI)</a>
-        <span class="link-desc">Türkiye geneli konut fiyat istatistikleri</span>
-      </div>
-    </div>
-    <div class="link-item">
-      <span class="link-bullet">TCMB</span>
-      <div>
-        <a href="https://www.tcmb.gov.tr/wps/wcm/connect/21c8c007-4006-45ee-bbc2-852f396a23f0/RPPI.pdf?MOD=AJPERES" target="_blank">RPPI Aralık 2025 Raporu (PDF)</a>
-        <span class="link-desc">Bölgesel ve kategori bazlı konut fiyat analizi</span>
-      </div>
-    </div>
-    <div class="link-item">
-      <span class="link-bullet">TEFAS</span>
-      <div>
-        <a href="https://www.tefas.gov.tr/FonKarsilastirma.aspx" target="_blank">TEFAS Fon Karşılaştırma</a>
-        <span class="link-desc">Tüm yatırım fonlarını getiri, risk ve ücret bazlı filtrele</span>
-      </div>
-    </div>
-    <div class="link-item">
-      <span class="link-bullet">EGM</span>
-      <div>
-        <a href="https://www.egm.org.tr/fonlar/bireysel-emeklilik-fon-alim-satim-platformu-befas/befas/" target="_blank">BEFAS — BES Fon Alım Satım Platformu</a>
-        <span class="link-desc">Farklı emeklilik şirketlerinin fonlarına merkezi erişim</span>
-      </div>
-    </div>
-    <div class="link-item">
-      <span class="link-bullet">GPG</span>
-      <div>
-        <a href="https://www.globalpropertyguide.com/middle-east/turkey/mortgage-interest-rate" target="_blank">Türkiye Mortgage Faiz Ortalamaları</a>
-        <span class="link-desc">Kredili gayrimenkul alımında mevcut finansman maliyetleri</span>
-      </div>
+  <div class="priority-item">
+    <div class="priority-num">05</div>
+    <div>
+      <div class="priority-title">OPEC+ 5 Nisan kararı</div>
+      <div class="priority-text">Mart'ta günlük 206 bin varil artış kararı alındı. Nisan kararı Körfez üretiminin ne ölçüde geri döneceğini şekillendirecek. Petrol fiyat tabanı için kritik.</div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="footer">
-  <div class="footer-brand">CAK · Mart 2026</div>
-  <div class="footer-disc">Kişisel araştırma notudur. Yatırım tavsiyesi değildir, herhangi bir kurumu temsil etmez. Her yatırım kararı bireysel risk toleransı ve mali duruma göre alınmalıdır.</div>
+  <div class="footer-brand">CAK · 12 Mar 2026</div>
+  <div class="footer-disc">Kişisel araştırma notudur. Yatırım tavsiyesi değildir.<br>Veriler kamuya açık kaynaklardan, bülten tarihi itibarıyla derlenmiştir.</div>
 </footer>
 
 </body>

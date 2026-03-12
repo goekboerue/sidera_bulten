@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Bu Ay Ne Alınır? — Mart 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafaf8;
+  --ink: #18181b;
+  --ink2: #3f3f46;
+  --muted: #71717a;
+  --rule: #e4e4e7;
+  --accent: #1d4ed8;
+  --accent-bg: #eff6ff;
+  --gold: #92400e;
+  --gold-bg: #fffbeb;
+  --red: #991b1b;
+  --red-bg: #fef2f2;
+  --green: #14532d;
+  --green-bg: #f0fdf4;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+/* ─── HEADER ─── */
+.header {
+  padding: 48px 40px 36px;
+  border-bottom: 2px solid var(--ink);
+}
+.header-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.header-title {
+  font-family: 'Lora', serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.header-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+.header-sub {
+  font-size: 14px;
+  color: var(--ink2);
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+.header-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  background: white;
+}
+
+/* ─── SECTIONS ─── */
+.section {
+  padding: 36px 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+/* ─── SUMMARY BOX ─── */
+.summary-box {
+  background: var(--ink);
+  color: #f4f4f5;
+  padding: 24px 28px;
+  margin: 20px 0 8px;
+}
+.summary-box p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  color: rgba(244,244,245,0.88);
+}
+.summary-box p:last-child { margin-bottom: 0; }
+.summary-box strong { color: #f4f4f5; font-weight: 600; }
+
+/* ─── DATA STRIP ─── */
+.data-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--rule);
+  margin: 20px 0;
+}
+.data-cell {
+  padding: 16px 18px;
+  border-right: 1px solid var(--rule);
+}
+.data-cell:last-child { border-right: none; }
+.data-cell-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.data-cell-value {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.data-cell-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* ─── RISK/OPPORTUNITY CARDS ─── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 20px 0;
+}
+.card {
+  padding: 16px 18px;
+  border: 1px solid;
+}
+.card-risk {
+  background: var(--red-bg);
+  border-color: #fca5a5;
+}
+.card-opp {
+  background: var(--green-bg);
+  border-color: #86efac;
+}
+.card-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.card-risk .card-label { color: var(--red); }
+.card-opp .card-label { color: var(--green); }
+.card ul { padding-left: 0; list-style: none; }
+.card ul li {
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding-left: 14px;
+  position: relative;
+  color: var(--ink2);
+}
+.card ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+.card ul li:last-child { border-bottom: none; }
+
+/* ─── DECISION TREE ─── */
+.decision-item {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.decision-icon {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.decision-body { flex: 1; }
+.decision-title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.decision-text {
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+.decision-verdict {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  margin-top: 8px;
+}
+.verdict-yellow { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+.verdict-green  { background: var(--green-bg); color: var(--green); border: 1px solid #86efac; }
+.verdict-red    { background: var(--red-bg); color: var(--red); border: 1px solid #fca5a5; }
+.verdict-blue   { background: var(--accent-bg); color: var(--accent); border: 1px solid #93c5fd; }
+
+/* ─── PLAN TABLE ─── */
+.plan-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  border: 1px solid var(--rule);
+  margin-bottom: -1px;
+}
+.plan-row:first-child { border-top: 2px solid var(--ink); }
+.plan-label {
+  background: var(--ink);
+  color: white;
+  padding: 14px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+.plan-content {
+  padding: 14px 18px;
+  background: white;
+}
+.plan-content-title {
+  font-weight: 600;
+  font-size: 13.5px;
+  margin-bottom: 4px;
+}
+.plan-content-bars { display: flex; flex-direction: column; gap: 5px; margin: 8px 0; }
+.bar-row { display: flex; align-items: center; gap: 8px; }
+.bar-label { font-size: 11px; color: var(--muted); width: 120px; flex-shrink: 0; }
+.bar-track { flex: 1; height: 6px; background: var(--rule); position: relative; }
+.bar-fill { height: 100%; position: absolute; left: 0; top: 0; }
+.bar-fill-liq { background: #1d4ed8; }
+.bar-fill-gold { background: #d97706; }
+.bar-fill-eq { background: #059669; }
+.bar-pct { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink2); width: 32px; text-align: right; }
+.plan-note { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 6px; }
+
+/* ─── INSTRUMENTS ─── */
+.instrument-block {
+  margin-bottom: 24px;
+}
+.instrument-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.instrument-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.instrument-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13.5px;
+}
+.instrument-item:last-child { border-bottom: none; }
+.instrument-name { color: var(--ink2); }
+.instrument-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ─── CHECKLIST ─── */
+.checklist { list-style: none; margin-top: 16px; }
+.checklist li {
+  padding: 10px 0 10px 28px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+  position: relative;
+  color: var(--ink2);
+  line-height: 1.55;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '○';
+  position: absolute;
+  left: 0;
+  font-size: 13px;
+  color: var(--muted);
+  top: 10px;
+}
+.checklist li strong { color: var(--ink); font-weight: 600; }
+
+/* ─── LINKS ─── */
+.link-list { margin-top: 16px; }
+.link-item {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.link-item:last-child { border-bottom: none; }
+.link-bullet {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  flex-shrink: 0;
+  padding-top: 2px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.link-item a { color: var(--accent); text-decoration: none; }
+.link-item a:hover { text-decoration: underline; }
+.link-desc { color: var(--muted); font-size: 12px; display: block; margin-top: 1px; }
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: 28px 40px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 8px;
+}
+.footer-brand {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.footer-disc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.55;
+  text-align: right;
+}
+
+/* ─── CALLOUT ─── */
+.callout {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-bg);
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+.callout strong { color: var(--ink); }
+
+@media (max-width: 560px) {
+  .header, .section, .footer { padding-left: 20px; padding-right: 20px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .data-strip { grid-template-columns: repeat(2, 1fr); }
+  .data-cell:nth-child(2) { border-right: none; }
+  .data-cell:nth-child(3) { grid-column: span 2; border-top: 1px solid var(--rule); border-right: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<div style="background:#fafaf8;border-bottom:1px solid #e4e4e7;padding:12px 40px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;">
+  <a href="index.html" style="color:#71717a;text-decoration:none;text-transform:uppercase;">← Tüm Bültenler</a>
+  <span style="color:#e4e4e7;margin:0 12px;">|</span>
+  <span style="color:#a1a1aa;text-transform:uppercase;">CAK Arşivi</span>
+</div>
+<header class="header">
+  <div class="header-kicker">CAK · Kişisel Araştırma Notu</div>
+  <h1 class="header-title">Bu Ay Ne Alınır?<br><em>Mart 2026 Konjonktür Rehberi</em></h1>
+  <p class="header-sub">
+    Ay başında sorulan "bu ay ne yapalım?" sorusuna risk/fırsat çerçevesi ve pratik seçenekler menüsüyle yanıt. Herhangi bir kurumu temsil etmez, yatırım tavsiyesi değildir.
+  </p>
+  <div class="header-tags">
+    <span class="tag">BES / BEFAS</span>
+    <span class="tag">TEFAS</span>
+    <span class="tag">Gayrimenkul</span>
+    <span class="tag">Altın · Emtia</span>
+    <span class="tag">Hisse</span>
+    <span class="tag">09 Mar 2026</span>
+  </div>
+</header>
+
+<!-- ══════════ YÖNETİCİ ÖZETİ ══════════ -->
+<section class="section">
+  <div class="section-label">Yönetici Özeti · 30 saniye</div>
+
+  <div class="data-strip">
+    <div class="data-cell">
+      <div class="data-cell-label">TCMB Politika Faizi</div>
+      <div class="data-cell-value">%37</div>
+      <div class="data-cell-note">Ocak'ta 100bp indirildi</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">Mart PPK Kararı</div>
+      <div class="data-cell-value">12 Mar</div>
+      <div class="data-cell-note">38 ekonomistten 37'si: sabit</div>
+    </div>
+    <div class="data-cell">
+      <div class="data-cell-label">2026 Yıl Sonu Beklentisi</div>
+      <div class="data-cell-value">%30</div>
+      <div class="data-cell-note">Analist medyanı</div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <p><strong>Ana tema:</strong> TCMB indirim patikasında ama Mart'ta duraksaması bekleniyor. Küresel enerji şoku ve tarife belirsizliği enflasyon yapışkanlığını canlı tutuyor. Bu ayın stratejik tonu: "Aceleci alım değil, konumlanma."</p>
+    <p><strong>Gayrimenkul:</strong> Konut fiyatları nominal artıyor, reel getiri zayıf. Kredi maliyeti caydırıcı. Peşin + iskontolu fırsat + kira getirisi üçü bir arada olmadan bu ay geçmek mantıklı.</p>
+    <p><strong>BES:</strong> Fon dağılımı "para piyasası / borçlanma + altın/emtia + hisse" dengesiyle kademeli kurulmalı. BEFAS fon genişliği avantajı değerlendirilmeli.</p>
+    <p><strong>Artan sermaye için:</strong> Tek seçim yapma — 3'lü yapı: (1) likidite tamponu, (2) jeopolitik şoka karşı emtia/altın hedge, (3) kademeli, seçici hisse/fon.</p>
+  </div>
+</section>
+
+<!-- ══════════ RİSK / FIRSAT ══════════ -->
+<section class="section">
+  <div class="section-label">Bu Ayın Haritası</div>
+  <h2 class="section-title">Risk ve Fırsat Çerçevesi</h2>
+
+  <div class="card-grid">
+    <div class="card card-risk">
+      <div class="card-label">⚠ Riskler</div>
+      <ul>
+        <li>Tarife/enerji şoku enflasyona yansırsa faiz indirimi gecikir</li>
+        <li>TL kur oynaklığı — ani dış şoklarda TL varlıklarda değer kaybı</li>
+        <li>Kredili yatırımda yüksek finansman maliyeti hata payını büyütüyor</li>
+        <li>Büyük para hareketi öncesi yanlış zamanlama riski</li>
+        <li>Jeopolitik risk (enerji koridorları, bölgesel gerilimler)</li>
+      </ul>
+    </div>
+    <div class="card card-opp">
+      <div class="card-label">✦ Fırsatlar</div>
+      <ul>
+        <li>Para piyasasında "beklerken kazan" — fırsat maliyeti düşük</li>
+        <li>TCMB indirim patikası netleştikçe uzun tahvil/bono değer kazanır</li>
+        <li>Altın/emtia jeopolitik hedge işlevi görüyor</li>
+        <li>Seçici hisse: temettü + değer + bilanço dayanıklılığı filtresiyle defansif sepet</li>
+        <li>Gayrimenkulde nakit alıcı iskonto avantajı</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>12 Mart PPK'yı bekle:</strong> Faiz kararı ve politika metninden gelecek sinyaller, ay içi kısa tahvil/bono ve döviz pozisyonlamalarını doğrudan etkiler. Karardan önce büyük hamleler yapmak zamanlama riskini artırır.
+  </div>
+</section>
+
+<!-- ══════════ KARAR AĞACI ══════════ -->
+<section class="section">
+  <div class="section-label">Karar Ağacı</div>
+  <h2 class="section-title">BES mi · Gayrimenkul mü · Altın mı · Hisse mi?</h2>
+
+  <div class="decision-item">
+    <div class="decision-icon">🏛</div>
+    <div class="decision-body">
+      <div class="decision-title">BES (Uzun Vade, Düzenli Birikim)</div>
+      <div class="decision-text">Her ay işlem yapılacak alan değil; ama her ay <em>fon dağılımı</em> gözden geçirilmeli. BEFAS aracılığıyla farklı şirket fonlarına erişim artık mümkün. Bu ay önerilen çerçeve: para piyasası/borçlanma çekirdeği + altın/emtia hedge + kademeli hisse. Fon değişikliklerini planın izin verdiği limitlerde tut.</div>
+      <span class="decision-verdict verdict-green">✓ Her ay gözden geçir</span>
+    </div>
+  </div>
+
+  <div class="decision-item">
+    <div class="decision-icon">🏗</div>
+    <div class="decision-body">
+      <div class="decision-title">Gayrimenkul — Bu Ayın Kısa Cevabı</div>
+      <div class="decision-text">Karar ufku 3–10 yıl olduğundan "aylık trade" değil. Konut fiyatları nominal artıyor ama enflasyon düzeltmesinde reel getiri zayıf. Dört koşul birlikte sağlanmıyorsa bu ay geç: <strong>(1)</strong> Peşin/az kredi + belirgin iskonto, <strong>(2)</strong> net kira getirisi tatmin edici, <strong>(3)</strong> hukuki/teknik durum temiz, <strong>(4)</strong> 12 aylık likidite tamponu elle kalıyor.</div>
+      <span class="decision-verdict verdict-yellow">▲ Fırsata göre — krediyle değil</span>
+    </div>
+  </div>
+
+  <div class="decision-item">
+    <div class="decision-icon">🪙</div>
+    <div class="decision-body">
+      <div class="decision-title">Altın / Emtia</div>
+      <div class="decision-text">Jeopolitik ve enerji şoku senaryosunda portföy sigortası işlevi görüyor. Kısa vadede oynak olabilir; tek hamlede büyük alım yerine sistematik birikim daha sağlıklı. BES içinde altın/kıymetli maden BYF veya TEFAS'ta ilgili tema üzerinden erişilebilir.</div>
+      <span class="decision-verdict verdict-green">✓ Sistematik, kademeli birikim</span>
+    </div>
+  </div>
+
+  <div class="decision-item">
+    <div class="decision-icon">📊</div>
+    <div class="decision-body">
+      <div class="decision-title">Hisse / Tematik Fon</div>
+      <div class="decision-text">Bu ay "tüm piyasa" değil, "seçici" yaklaşım. Filtre: temettü verimi + değerleme disiplini + bilanço dayanıklılığı. Alım aylık bütçeyi 3–4 haftaya bölerek kademeli yapılmalı. Piyasa hareketine göre panik alım/satıştan kaçın.</div>
+      <span class="decision-verdict verdict-blue">→ Kademeli · Seçici · DCA</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PLANLAR ══════════ -->
+<section class="section">
+  <div class="section-label">3 Hazır Plan</div>
+  <h2 class="section-title">Risk Profiline Göre Aylık Dağılım Şablonları</h2>
+  <p style="font-size:13.5px; color:var(--muted); margin-bottom:20px;">Yüzdeler başlangıç şablonudur; hedef vade, gelir ihtiyacı ve risk toleransına göre uyarlanmalıdır.</p>
+
+  <div class="plan-row">
+    <div class="plan-label">Plan A<br>Temkinli</div>
+    <div class="plan-content">
+      <div class="plan-content-title">Koruma önce, büyüme sonra</div>
+      <div class="plan-content-bars">
+        <div class="bar-row">
+          <span class="bar-label">Para Piy. / Bono</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-liq" style="width:70%"></div></div>
+          <span class="bar-pct">%70</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Altın / Emtia</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:20%"></div></div>
+          <span class="bar-pct">%20</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Hisse / Fon</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-eq" style="width:10%"></div></div>
+          <span class="bar-pct">%10</span>
+        </div>
+      </div>
+      <div class="plan-note">Hisseyi 4 haftaya böl (DCA). Volatilite yükselirse hisse dilimini küçült.</div>
+    </div>
+  </div>
+
+  <div class="plan-row">
+    <div class="plan-label">Plan B<br>Dengeli</div>
+    <div class="plan-content">
+      <div class="plan-content-title">Büyüme ile korumayı dengele</div>
+      <div class="plan-content-bars">
+        <div class="bar-row">
+          <span class="bar-label">Para Piy. / Bono</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-liq" style="width:45%"></div></div>
+          <span class="bar-pct">%45</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Altın / Emtia</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:20%"></div></div>
+          <span class="bar-pct">%20</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Hisse / Fon</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-eq" style="width:35%"></div></div>
+          <span class="bar-pct">%35</span>
+        </div>
+      </div>
+      <div class="plan-note">Aylık rebalancing. ±%5 sapmada dengele. Kademeli hisse girişi.</div>
+    </div>
+  </div>
+
+  <div class="plan-row">
+    <div class="plan-label">Plan C<br>Agresif</div>
+    <div class="plan-content">
+      <div class="plan-content-title">Büyüme ağırlıklı — kaldıraçsız</div>
+      <div class="plan-content-bars">
+        <div class="bar-row">
+          <span class="bar-label">Para Piy. / Bono</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-liq" style="width:25%"></div></div>
+          <span class="bar-pct">%25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Altın / Emtia</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-gold" style="width:15%"></div></div>
+          <span class="bar-pct">%15</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Hisse / Tematik</span>
+          <div class="bar-track"><div class="bar-fill bar-fill-eq" style="width:60%"></div></div>
+          <span class="bar-pct">%60</span>
+        </div>
+      </div>
+      <div class="plan-note">2 haftada bir kontrol. ±%7–10 sapmada dengele. Kaldıraçlı ürünlerden kaçın.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ARAÇLAR ══════════ -->
+<section class="section">
+  <div class="section-label">Bu Ayın Araçları</div>
+  <h2 class="section-title">BIST · TEFAS · BEFAS — Pratik Seçim Çerçevesi</h2>
+
+  <div class="instrument-block">
+    <div class="instrument-title">BIST — Hisse Tarafı Metrik İzleme</div>
+    <div class="instrument-item">
+      <span class="instrument-name">Enerji / Rafineri sektörü</span>
+      <span class="instrument-meta">Nakit akışı + temettü takibi</span>
+    </div>
+    <div class="instrument-item">
+      <span class="instrument-name">Otomotiv / İhracat sektörü</span>
+      <span class="instrument-meta">Döviz geliri · sanayi kalitesi</span>
+    </div>
+    <div class="instrument-item">
+      <span class="instrument-name">Taahhüt / Enerji (defansif yapı)</span>
+      <span class="instrument-meta">Düşük döngüsellik</span>
+    </div>
+    <div class="instrument-item">
+      <span class="instrument-name">Bankacılık sektörü</span>
+      <span class="instrument-meta">F/K + sermaye yeterliliği izleme</span>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-top:12px;">
+      Takip yöntemi: BIST100 bileşen ekranından F/K, temettü verimi ve özkaynak karlılığı filtrele → "en sağlam 10" listesini her ay güncelle. Spesifik hisse kararı bireysel analizle verilmelidir.
+    </p>
+  </div>
+
+  <div class="instrument-block">
+    <div class="instrument-title">TEFAS — Bu Ayın 3 Tema Seçeneği</div>
+    <div class="instrument-item">
+      <span class="instrument-name">Para Piyasası Fonu (PPF)</span>
+      <span class="instrument-meta">Likidite bacağı · "beklerken kazan"</span>
+    </div>
+    <div class="instrument-item">
+      <span class="instrument-name">Altın / Kıymetli Maden Teması</span>
+      <span class="instrument-meta">Hedge bacağı · jeopolitik koruma</span>
+    </div>
+    <div class="instrument-item">
+      <span class="instrument-name">Küresel Teknoloji / Tematik (Yüksek Risk)</span>
+      <span class="instrument-meta">Kur + sektör teması · kademeli giriş</span>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      Fon seçiminde <strong>tek metrik yetmez.</strong> Son 1Y + 3Y getiri, risk seviyesi (standart sapma), yönetim ücreti ve fonun endeks/aktif yönetim yapısını birlikte değerlendir.
+    </div>
+  </div>
+
+  <div class="instrument-block">
+    <div class="instrument-title">BEFAS / BES — Bu Ayın Pratik Hamlesi</div>
+    <p style="font-size:13.5px; color:var(--ink2); line-height:1.65;">
+      BES tarafında bu ay "mükemmel fon" aramak yerine <strong>dağılım disiplinini kurmak</strong> daha değerli. Çerçeve: <em>para piyasası/borçlanma çekirdeği + altın hedge + kademeli hisse.</em> BEFAS, farklı emeklilik şirketlerinin fonlarına erişim sağlayabilir — plan/ürün kısıtları geçerlidir, kendi planını kontrol et.
+    </p>
+  </div>
+
+  <!-- Örnek BES Dağılımları -->
+  <div style="background:white; border:1px solid var(--rule); padding:20px 22px; margin-top:8px;">
+    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:14px;">BES Örnek Dağılımlar (Şablon)</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div>
+        <div style="font-weight:600; font-size:13px; margin-bottom:8px; color:var(--ink);">Muhafazakâr BES</div>
+        <div style="font-size:13px; color:var(--ink2); line-height:1.8;">
+          %60 Para piy. / borçlanma<br>
+          %20 Altın / kıymetli maden<br>
+          %20 Hisse
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:600; font-size:13px; margin-bottom:8px; color:var(--ink);">Agresif BES</div>
+        <div style="font-size:13px; color:var(--ink2); line-height:1.8;">
+          %30 Para piy. / borçlanma<br>
+          %20 Altın / kıymetli maden<br>
+          %50 Hisse / tematik
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ KONTROl LİSTESİ ══════════ -->
+<section class="section">
+  <div class="section-label">Bu Ayın Kontrol Listesi</div>
+  <h2 class="section-title">Karar Öncesi 6 Adım</h2>
+
+  <ul class="checklist">
+    <li><strong>12 Mart PPK sonucunu bekle.</strong> Faiz kararı ve politika metni, ay içi tahvil/bono ve kur pozisyonlamalarını doğrudan etkiler.</li>
+    <li><strong>Nakit tamponu koru.</strong> 3–6 aylık harcama / taksit karşılığı likit tutuluyor mu? Yatırıma geçmeden önce bu satırı işaretle.</li>
+    <li><strong>Kademeli alım.</strong> Hisse ve tematik fonlarda tek seferlik büyük alım yerine aylık bütçeyi 3–4 haftaya böl.</li>
+    <li><strong>Gayrimenkulde krediyi sorgula.</strong> Finansman maliyeti mevcut kira getirisini net geçiyor mu? Geçmiyorsa bu ay bekle.</li>
+    <li><strong>BES fon dağılımını kontrol et.</strong> Ay başında bir kez bak, yılda birkaç kez stratejik değişiklikle yetin.</li>
+    <li><strong>Kaldıraçlı ürünlerden uzak dur.</strong> Yüksek faiz + jeopolitik belirsizlik ortamında kaldıraçlı yapılar volatiliteyi katlar; asimetrik zarar riski taşır.</li>
+  </ul>
+</section>
+
+<!-- ══════════ KAYNAKLAR ══════════ -->
+<section class="section">
+  <div class="section-label">Kaynak Bağlantıları</div>
+  <h2 class="section-title">Okuma ve Araştırma İçin</h2>
+
+  <div class="link-list">
+    <div class="link-item">
+      <span class="link-bullet">TCMB</span>
+      <div>
+        <a href="https://www.tcmb.gov.tr/wps/wcm/connect/EN/TCMB+EN/Main+Menu/Announcements/Press+Releases/2026/ANO2026-01" target="_blank">TCMB Politika Faizi Kararı — Ocak 2026</a>
+        <span class="link-desc">Güncel politika faizi ve PPK karar metni</span>
+      </div>
+    </div>
+    <div class="link-item">
+      <span class="link-bullet">TCMB</span>
+      <div>
+        <a href="https://www.tcmb.gov.tr/wps/wcm/connect/EN/TCMB+EN/Main+Menu/Statistics/Real+Sector+Statistics/Residential+Property+Price+Index/" target="_blank">Konut Fiyat Endeksi (RPPI)</a>
+        <span class="link-desc">Türkiye geneli konut fiyat istatistikleri</span>
+      </div>
+    </div>
+    <div class="link-item">
+      <span class="link-bullet">TCMB</span>
+      <div>
+        <a href="https://www.tcmb.gov.tr/wps/wcm/connect/21c8c007-4006-45ee-bbc2-852f396a23f0/RPPI.pdf?MOD=AJPERES" target="_blank">RPPI Aralık 2025 Raporu (PDF)</a>
+        <span class="link-desc">Bölgesel ve kategori bazlı konut fiyat analizi</span>
+      </div>
+    </div>
+    <div class="link-item">
+      <span class="link-bullet">TEFAS</span>
+      <div>
+        <a href="https://www.tefas.gov.tr/FonKarsilastirma.aspx" target="_blank">TEFAS Fon Karşılaştırma</a>
+        <span class="link-desc">Tüm yatırım fonlarını getiri, risk ve ücret bazlı filtrele</span>
+      </div>
+    </div>
+    <div class="link-item">
+      <span class="link-bullet">EGM</span>
+      <div>
+        <a href="https://www.egm.org.tr/fonlar/bireysel-emeklilik-fon-alim-satim-platformu-befas/befas/" target="_blank">BEFAS — BES Fon Alım Satım Platformu</a>
+        <span class="link-desc">Farklı emeklilik şirketlerinin fonlarına merkezi erişim</span>
+      </div>
+    </div>
+    <div class="link-item">
+      <span class="link-bullet">GPG</span>
+      <div>
+        <a href="https://www.globalpropertyguide.com/middle-east/turkey/mortgage-interest-rate" target="_blank">Türkiye Mortgage Faiz Ortalamaları</a>
+        <span class="link-desc">Kredili gayrimenkul alımında mevcut finansman maliyetleri</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="footer-brand">CAK · Mart 2026</div>
+  <div class="footer-disc">Kişisel araştırma notudur. Yatırım tavsiyesi değildir, herhangi bir kurumu temsil etmez. Her yatırım kararı bireysel risk toleransı ve mali duruma göre alınmalıdır.</div>
+</footer>
+
+</body>
+</html>

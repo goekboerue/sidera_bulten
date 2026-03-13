@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kara Cuma — 13 Mart 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #100f12;
+  --s1: #18171b;
+  --s2: #201f24;
+  --bd: #2c2b31;
+  --bd2: #3a3940;
+  --t1: #eae8f2;
+  --t2: #9d9ab5;
+  --t3: #5c5a6e;
+  --gold: #c9a84c;
+  --gold2: #7a6330;
+  --red: #d95f5f;
+  --red-bg: #1e1111;
+  --red-bd: #3d1f1f;
+  --amber: #d4954a;
+  --amber-bg: #1e1608;
+  --amber-bd: #3d2e12;
+  --green: #52b07a;
+  --green-bg: #0e1e14;
+  --green-bd: #1e3d28;
+  --blue: #5a9fd4;
+  --blue-bg: #0c1a26;
+  --blue-bd: #1a3650;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;max-width:700px;margin:0 auto;padding:0 0 80px;}
+
+/* NAV */
+.nav{background:var(--s1);border-bottom:1px solid var(--bd);padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:var(--t3);text-decoration:none;}
+.nav a:hover{color:var(--t2);}
+
+/* ALERT */
+.alert{background:var(--red);padding:10px 40px;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:12px;color:#fff;}
+.dot{width:7px;height:7px;background:#fff;border-radius:50%;flex-shrink:0;animation:blink 1.3s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* HEADER */
+.hd{padding:40px 40px 32px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd);}
+.badge{display:inline-block;background:var(--red);color:#fff;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:3px 10px;margin-bottom:16px;}
+h1{font-family:'Instrument Serif',serif;font-size:38px;font-weight:400;line-height:1.12;letter-spacing:-.5px;margin-bottom:10px;}
+h1 em{font-style:italic;color:var(--red);}
+.lead{font-size:14px;color:var(--t2);line-height:1.65;max-width:500px;}
+
+/* TICKER */
+.ticker{background:var(--s1);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:14px 40px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;}
+.tc{padding:0 10px 0 0;border-right:1px solid var(--bd);}
+.tc:last-child{border-right:none;padding-right:0;}
+.tc:first-child{padding-left:0;}
+.tl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:3px;}
+.tv{font-family:'DM Mono',monospace;font-size:14px;color:var(--t1);}
+.tc-ch{font-family:'DM Mono',monospace;font-size:10px;margin-top:2px;}
+.up{color:var(--green);}
+.dn{color:var(--red);}
+.nt{color:var(--t3);}
+
+/* SECTION */
+.sec{padding:30px 40px;border-bottom:1px solid var(--bd);}
+.slbl{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.slbl::after{content:'';flex:1;height:1px;background:var(--bd);}
+h2{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:var(--t1);margin-bottom:14px;line-height:1.2;}
+.body{font-size:14.5px;color:var(--t2);line-height:1.75;}
+.body p{margin-bottom:12px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+
+/* CALLOUTS */
+.box{border:1px solid;padding:16px 20px;margin:16px 0;font-size:13.5px;line-height:1.65;}
+.box strong{font-weight:600;}
+.b-red{background:var(--red-bg);border-color:var(--red-bd);color:var(--t2);}
+.b-red strong{color:var(--red);}
+.b-amber{background:var(--amber-bg);border-color:var(--amber-bd);color:var(--t2);}
+.b-amber strong{color:var(--amber);}
+.b-green{background:var(--green-bg);border-color:var(--green-bd);color:var(--t2);}
+.b-green strong{color:var(--green);}
+.b-blue{background:var(--blue-bg);border-color:var(--blue-bd);color:var(--t2);}
+.b-blue strong{color:var(--blue);}
+.b-gold{background:#1a1508;border-color:#3d3010;color:var(--t2);}
+.b-gold strong{color:var(--gold);}
+
+/* STAT GRID */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);margin:18px 0;}
+.sc{background:var(--s1);padding:14px 16px;}
+.sc-l{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:5px;}
+.sc-v{font-family:'Instrument Serif',serif;font-size:22px;color:var(--t1);line-height:1.1;}
+.sc-n{font-size:11px;color:var(--t2);margin-top:3px;}
+
+/* SCENARIO */
+.scen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0;}
+.scen{padding:16px;}
+.scen-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;}
+.scen-title{font-weight:600;font-size:13px;color:var(--t1);margin-bottom:8px;line-height:1.3;}
+.scen-body{font-size:12.5px;color:var(--t2);line-height:1.55;}
+.scen-val{font-family:'DM Mono',monospace;font-size:11px;margin-top:8px;}
+
+/* ACTION */
+.ac{display:flex;border:1px solid var(--bd);margin-bottom:-1px;}
+.ac:first-child{border-top:2px solid var(--gold);}
+.ac-cat{width:80px;flex-shrink:0;padding:14px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;border-right:1px solid var(--bd);}
+.cat-r{color:var(--red);background:var(--red-bg);}
+.cat-a{color:var(--amber);background:var(--amber-bg);}
+.cat-g{color:var(--green);background:var(--green-bg);}
+.cat-b{color:var(--blue);background:var(--blue-bg);}
+.ac-body{flex:1;padding:14px 18px;background:var(--s1);}
+.ac-t{font-weight:600;font-size:13.5px;color:var(--t1);margin-bottom:4px;}
+.ac-d{font-size:13px;color:var(--t2);line-height:1.55;}
+
+/* TIMELINE */
+.tl-item{display:flex;gap:16px;margin-bottom:4px;}
+.tl-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);width:60px;flex-shrink:0;padding-top:11px;letter-spacing:.05em;}
+.tl-body{flex:1;padding:10px 0 10px 14px;border-left:1px solid var(--bd2);margin-bottom:8px;}
+.tl-ev{font-size:13.5px;color:var(--t1);font-weight:500;margin-bottom:3px;}
+.tl-det{font-size:12px;color:var(--t2);line-height:1.55;}
+
+/* VERDICT */
+.verdict{background:var(--s1);border:1px solid var(--gold2);padding:28px 32px;margin-top:32px;}
+.verdict-lbl{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.verdict h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--t1);margin-bottom:16px;}
+.verdict .body{font-size:14px;}
+
+/* FOOTER */
+.ft{padding:22px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:8px;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.ft{padding-left:20px;padding-right:20px;}
+  .ticker{padding-left:20px;padding-right:20px;grid-template-columns:repeat(3,1fr);}
+  .tc:nth-child(3){border-right:none;}
+  .tc:nth-child(4){border-top:1px solid var(--bd);padding-top:10px;margin-top:10px;}
+  .sg,.scen-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:var(--bd2)">|</span>
+  <span style="color:var(--t3)">CAK Arşivi</span>
+</div>
+
+<div class="alert">
+  <div class="dot"></div>
+  Olağandışı Ara Bülten · 13 Mart 2026 — Kara Cuma
+</div>
+
+<!-- HEADER -->
+<div class="hd">
+  <div class="kicker">CAK · Kişisel Araştırma Notu</div>
+  <div class="badge">⚠ Kara Cuma Özeti</div>
+  <h1>Üç Şok,<br><em>Aynı Gün</em></h1>
+  <p class="lead">İş kaybı, yapışkan enflasyon ve Hürmüz krizi 13 Mart'ta birleşti. Fed 18 Mart'ta köşeye sıkışıyor. Bu bülten bugünün tüm yükünü tek pakette taşıyor.</p>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tc">
+    <div class="tl">Brent Petrol</div>
+    <div class="tv">~$93</div>
+    <div class="tc-ch dn">▼ Zirve $120'dı</div>
+  </div>
+  <div class="tc">
+    <div class="tl">ABD İşsizlik</div>
+    <div class="tv">%4,4</div>
+    <div class="tc-ch dn">▼ 92K iş kaybı</div>
+  </div>
+  <div class="tc">
+    <div class="tl">CPI (Şubat)</div>
+    <div class="tv">%2,4</div>
+    <div class="tc-ch nt">— Yapışkan kaldı</div>
+  </div>
+  <div class="tc">
+    <div class="tl">Fed Faizi</div>
+    <div class="tv">3,50–3,75</div>
+    <div class="tc-ch nt">— 18 Mar sabit</div>
+  </div>
+  <div class="tc">
+    <div class="tl">Hürmüz</div>
+    <div class="tv">Kapalı</div>
+    <div class="tc-ch dn">▼ Yeni lider: Kapat</div>
+  </div>
+</div>
+
+<!-- BÖLÜM 1: STAGFLASYON -->
+<div class="sec">
+  <div class="slbl">Şok 1 · İşgücü + Enflasyon</div>
+  <h2>Stagflasyon Hayaleti Geri Döndü</h2>
+
+  <div class="body">
+    <p>Ekonominin iki temel ölçütü bu hafta aynı anda yanlış yöne döndü. Şubat'ta <strong>92.000 iş kaybedildi</strong> — piyasanın beklentisi 59.000 yeni iş artışıydı. Tek bir rakamın hikâyesi değil bu: Aralık rakamı 65.000 aşağı revize edildi, altı aylık ortalama eksi bölgesinde.</p>
+    <p>Öte yanda enflasyon <strong>%2,4'te yapışkan kaldı</strong> — Fed'in %2 hedefinin üzerinde, Moody's baş ekonomisti Mark Zandi'nin deyişiyle "Yavaşladığına dair hiçbir his yok, rahatsız edici biçimde ısrarcı." Üstelik bu veri petrol şokunun henüz fiyatlara yansımadığı dönemi ölçüyor.</p>
+  </div>
+
+  <div class="sg">
+    <div class="sc">
+      <div class="sc-l">Şubat İş Değişimi</div>
+      <div class="sc-v" style="color:var(--red)">−92.000</div>
+      <div class="sc-n">Beklenti: +59.000 · Fark: 151.000</div>
+    </div>
+    <div class="sc">
+      <div class="sc-l">CPI (yıllık, Şubat)</div>
+      <div class="sc-v">%2,4</div>
+      <div class="sc-n">Ocak ile aynı · Fed hedefi %2</div>
+    </div>
+    <div class="sc">
+      <div class="sc-l">Benzin Fiyatı (ABD)</div>
+      <div class="sc-v" style="color:var(--amber)">$3,50</div>
+      <div class="sc-n">2 haftada +%19 · 2024'ten bu yana zirve</div>
+    </div>
+  </div>
+
+  <div class="box b-red">
+    <strong>Stagflasyon neden korkutucu?</strong> Normal bir yavaşlamada Merkez Bankası faiz indirir, ekonomiyi canlandırır. Ama enflasyon da aynı anda yüksekse faizi indiremez — çünkü enflasyonu körükler. Faizi artıramaz — çünkü zaten durgunlaşan ekonomiyi vurur. İki yönden gelen baskıya sıkışır; 1970'lerin en büyük ekonomik kabusu buydu.
+  </div>
+
+  <div class="body">
+    <p>Capital Economics analistlerine göre petrol $100 bandında kalıcı yerleşirse ABD enflasyonu <strong>yıl sonunda %3,5'e</strong> tırmanabilir, ikinci çeyrekte benzin fiyatı galon başına $5'a yaklaşabilir. Tarımsal girdi ve nakliye maliyetleri üzerinden market raflarına da yansıması kaçınılmaz.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2: HÜRMÜZ -->
+<div class="sec">
+  <div class="slbl">Şok 2 · Enerji Koridoru</div>
+  <h2>Hürmüz: Yeni Lider, Eski Çizgi</h2>
+
+  <div class="tl-item">
+    <div class="tl-date">09 Mar</div>
+    <div class="tl-body">
+      <div class="tl-ev">İran'da yeni dini lider atandı: Mojtaba Khamenei</div>
+      <div class="tl-det">Devrimci çizginin devamı — ilk açıklaması: "Hürmüz kapalı kalmalı." Müzakere kapısı Hamaney döneminden daha da daraldı.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">11–12 Mar</div>
+    <div class="tl-body">
+      <div class="tl-ev">Üç gemi daha vuruldu, bir tanker Basra açıklarında alev aldı</div>
+      <div class="tl-det">Basra Körfezi'nde hâlâ ~15 milyon varil ham petrol mahsur. Irak ve Kuveyt üretimi tekrar kıstı.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">12 Mar</div>
+    <div class="tl-body">
+      <div class="tl-ev">ABD Enerji Bakanı: "Tanker eskortu için henüz hazır değiliz"</div>
+      <div class="tl-det">En hızlı çözüm seçeneği pratikte devre dışı. IEA 400 milyon varil acil rezerv serbest bıraktı — kısa vadeli tampon sağlıyor ama yapısal çözüm değil.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">13 Mar</div>
+    <div class="tl-body">
+      <div class="tl-ev">Brent ~$93 — zirve $120'dan geriledi ama kriz devam ediyor</div>
+      <div class="tl-det">Trump "savaş yakında bitiyor" söylemi fiyatı bastırdı. Ama boğaz kapalı olduğu sürece $93 bile yapısal risk anlamına geliyor.</div>
+    </div>
+  </div>
+
+  <div class="scen-grid">
+    <div class="scen" style="background:var(--amber-bg);border:1px solid var(--amber-bd);">
+      <div class="scen-lbl" style="color:var(--amber);">Baz (%50)</div>
+      <div class="scen-title">2–4 Haftada Ateşkes</div>
+      <div class="scen-body">Boğaz kısmen açılıyor. Petrol kademeli düşüyor. Yıl sonu ~$60 senaryosu canlı.</div>
+      <div class="scen-val" style="color:var(--amber);">Brent: $80–100</div>
+    </div>
+    <div class="scen" style="background:var(--green-bg);border:1px solid var(--green-bd);">
+      <div class="scen-lbl" style="color:var(--green);">İyimser (%20)</div>
+      <div class="scen-title">Hızlı Diplomatik Çözüm</div>
+      <div class="scen-body">Trump anlaşmayı önce kamuoyuna duyuruyor, boğaz açılıyor, piyasalar normalize.</div>
+      <div class="scen-val" style="color:var(--green);">Brent: $65–80</div>
+    </div>
+    <div class="scen" style="background:var(--red-bg);border:1px solid var(--red-bd);">
+      <div class="scen-lbl" style="color:var(--red);">Kötümser (%30)</div>
+      <div class="scen-title">2+ Ay Kapanma</div>
+      <div class="scen-body">Körfez üretimi 10M varil düşer. Enflasyon %3,5+ olur. Fed köşeye sıkışır.</div>
+      <div class="scen-val" style="color:var(--red);">Brent: $130–150+</div>
+    </div>
+  </div>
+
+  <div class="box b-amber">
+    <strong>Türkiye için kritik:</strong> Hürmüz'de 15 Türk gemisi. Enerji ithalatçısı Türkiye için her $10 petrol artışı cari açığa ~$4–5 milyar ek yük anlamına geliyor. TCMB dün aldığı PPK kararında bu riski açıkça metne taşıdı — artık resmi politika belgesi düzeyinde tescillendi.
+  </div>
+</div>
+
+<!-- BÖLÜM 3: FED -->
+<div class="sec">
+  <div class="slbl">Şok 3 · Merkez Bankası Köşesi</div>
+  <h2>18 Mart FOMC: Fed Ne Yapar?</h2>
+
+  <div class="body">
+    <p>Piyasanın <strong>%92 ihtimalle</strong> beklediği karar: Faiz sabit, 3,50–3,75 bandında kalır. Ama asıl önemli olan karar değil. Bu toplantı üç yıllık periyotta ilk kez <strong>güncellenmiş ekonomik projeksiyonları ve "nokta grafiği"ni</strong> içeriyor — her Fed üyesinin faizin nereye gideceğini düşündüğünü gösteren harita.</p>
+    <p>Savaş öncesi yılda iki indirim fiyatlanıyordu. Şimdi o beklenti neredeyse sıfırlandı. Gerçek soru şu: <strong>Nokta grafiği faiz artışını işaret edecek mi?</strong></p>
+  </div>
+
+  <div class="sg">
+    <div class="sc">
+      <div class="sc-l">18 Mar Sabit Beklentisi</div>
+      <div class="sc-v">%92</div>
+      <div class="sc-n">CME FedWatch · Piyasa konsensüsü</div>
+    </div>
+    <div class="sc">
+      <div class="sc-l">Ocak Dissenter'ları</div>
+      <div class="sc-v">2 Üye</div>
+      <div class="sc-n">Miran + Waller — indirim istedi</div>
+    </div>
+    <div class="sc">
+      <div class="sc-l">Powell Görevi Bitiyor</div>
+      <div class="sc-v">23 May</div>
+      <div class="sc-n">Kevin Warsh aday · Şahin profil</div>
+    </div>
+  </div>
+
+  <div class="box b-blue">
+    <strong>18 Mart'ta izlenecek 3 sinyal:</strong><br><br>
+    <strong style="color:var(--t1);">① Nokta grafiği</strong> — Sıfır indirim veya artış sinyali piyasaları sert vurur. İki indirim korunursa kısa vadeli rahatlama.<br><br>
+    <strong style="color:var(--t1);">② SEP (Ekonomik projeksiyon)</strong> — Fed'in kendi büyüme ve enflasyon revizyonu. Stagflasyon izi görülürse "yüksek enflasyon + düşük büyüme" projeksiyonu piyasalarda panik tetikler.<br><br>
+    <strong style="color:var(--t1);">③ Powell'ın basın toplantısı dili</strong> — "İlerleme", "sabır", "risk" kelimelerinin seçimi algoritmik sistemlerce milisaniyede fiyatlanır. Karar değil, kelimeler piyasayı hareket ettirir.
+  </div>
+
+  <div class="box b-red">
+    <strong>Warsh faktörü:</strong> Powell'ın görevi 23 Mayıs'ta bitiyor. Halef aday Kevin Warsh, Fed tarihinde faiz artışına erken geçiş önerileriyle tanınan şahin bir profil. Atanması piyasalarda yeni bir değerleme dalgasını tetikleyebilir — büyüme hisseleri, uzun vadeli tahviller ve altın doğrudan etkilenir.
+  </div>
+</div>
+
+<!-- BÖLÜM 4: NE YAPALIM -->
+<div class="sec">
+  <div class="slbl">Bölüm 4 · Pratik Çerçeve</div>
+  <h2>Bugün Değişen Ne, Ne Yapmalı?</h2>
+
+  <div class="ac">
+    <div class="ac-cat cat-r">Kritik İzle</div>
+    <div class="ac-body">
+      <div class="ac-t">Kaldıraçlı pozisyonları bu hafta kapat</div>
+      <div class="ac-d">Stagflasyon + savaş + Fed belirsizliği üçlüsü kaldıraçlı yapıları iki yönlü vurur. Bekleyen likiditasyon planı varsa 18 Mart'tan önce harekete geçmek daha temiz bir çıkış penceresi sunabilir.</div>
+    </div>
+  </div>
+  <div class="ac">
+    <div class="ac-cat cat-a">İzle</div>
+    <div class="ac-body">
+      <div class="ac-t">BES tahvil/bono ağırlığını gözden geçir</div>
+      <div class="ac-d">Nokta grafiği faiz artışını işaret ederse uzun vadeli sabit getirili fonlar değer kaybeder. BES içindeki borçlanma araçları ağırlığını kısa vadeliye veya altın/emtiaya kaydırmak bu dönem için daha sağlıklı.</div>
+    </div>
+  </div>
+  <div class="ac">
+    <div class="ac-cat cat-a">Bekle</div>
+    <div class="ac-body">
+      <div class="ac-t">Altın geri çekilmesini soğukkanlı değerlendir</div>
+      <div class="ac-d">Stagflasyon ortamında altın tezi yapısal olarak bozulmadı. Ons $5.000 altına sarkma ihtimalinde birikim penceresi açılabilir. Tek seferlik büyük hamleler yerine sistematik alım mantığını koru.</div>
+    </div>
+  </div>
+  <div class="ac">
+    <div class="ac-cat cat-g">Koru</div>
+    <div class="ac-body">
+      <div class="ac-t">Nakit/likidite tamponuna dokunma</div>
+      <div class="ac-d">Üç şokun aynı anda geldiği ortamda likit olanlar en güçlü pozisyondadır. 3–6 aylık harcama tamponunu yatırıma aktarma dürtüsüne kapılma — bu güç değil, risk almak olur.</div>
+    </div>
+  </div>
+  <div class="ac">
+    <div class="ac-cat cat-b">Uzun Vade</div>
+    <div class="ac-body">
+      <div class="ac-t">BES/uzun vadeli birikimlerde paniğe kapılma</div>
+      <div class="ac-d">Aylık prim yatırmaya devam. Kısa vadeli oynaklık uzun vadeli birikim araçlarında yapısal zarar yaratmaz; panik satışı yaratır. 2032 hedef çerçeven bu gürültüye göre değişmiyor.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAKVİM -->
+<div class="sec">
+  <div class="slbl">Önümüzdeki 10 Gün</div>
+  <h2>Kritik Tarihler</h2>
+
+  <div class="tl-item">
+    <div class="tl-date">13 Mar</div>
+    <div class="tl-body">
+      <div class="tl-ev">PCE Enflasyon Verisi — Bugün</div>
+      <div class="tl-det">Fed'in tercihli enflasyon göstergesi. CPI'ın üzerinde gelirse 18 Mart öncesi piyasalarda sert satış dalgası gelebilir.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">18 Mar</div>
+    <div class="tl-body">
+      <div class="tl-ev">FOMC Kararı + Nokta Grafiği + Powell Basın Toplantısı</div>
+      <div class="tl-det">Yılın en kritik Fed toplantısı. Karar değil, projeksiyon ve dil belirleyici. Saat 21:00 TSİ kararı, 21:30 Powell.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">5 Nis</div>
+    <div class="tl-body">
+      <div class="tl-ev">OPEC+ Üretim Kararı</div>
+      <div class="tl-det">Körfez üretiminin ne ölçüde geri döneceği netleşir. Petrol fiyat tabanı için belirleyici.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-date">22 Nis</div>
+    <div class="tl-body">
+      <div class="tl-ev">TCMB Nisan PPK — Türkiye Gerçek Sınavı</div>
+      <div class="tl-det">İndirim, sabit ya da artış: üçü de masada. Petrol ve enflasyon verileri bu toplantıya kadar netleşecek.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VERDICT -->
+<div class="sec">
+  <div class="verdict">
+    <div class="verdict-lbl">▸ Karargah Kararı · 13 Mart 2026</div>
+    <h2>Bugün Özeti: Ne Değişti, Ne Değişmedi</h2>
+    <div class="body">
+      <p><strong>Değişen:</strong> Stagflasyon artık bir risk senaryosu değil, piyasanın aktif olarak fiyatladığı baz senaryo. Fed'in indirim kapısı savaş öncesine kıyasla neredeyse kapandı. Türkiye'nin TCMB'si bu riski dün resmi metne taşıdı — öngörü değil, tescil.</p>
+      <p><strong>Değişmeyen:</strong> Uzun vadeli çerçeven bozulmadı. Hard asset tezi — altın, gümüş, platin, enerji altyapısı — stagflasyon ortamında daha da güçlendi. AI altyapısı moat'ları kısa vadeli oynaklıktan etkilense de yapısal tezleri sağlam. BES uzun vadeli birikimine dokunma.</p>
+      <p><strong>Bekle:</strong> 18 Mart FOMC nokta grafiği ve Powell dili. O toplantı bu haftanın tüm verilerini fiyatlayan ilk resmi Fed tepkisi olacak. Büyük hamleler için o toplantıdan sonrasını bekle.</p>
+    </div>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · 13 Mar 2026 · Ara Bülten</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>

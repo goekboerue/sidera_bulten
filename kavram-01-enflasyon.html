@@ -144,7 +144,11 @@ h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t
 .summary li strong{color:var(--t1);font-weight:500;}
 
 /* NEXT */
-.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;color:inherit;transition:background .15s,border-color .15s;cursor:pointer;}
+.next:hover{background:var(--s2);border-top-color:var(--gold);}
+.next:hover .next-arrow{color:var(--gold);transform:translateX(4px);}
+.next:hover .next-title{color:var(--gold);}
+.next-arrow{transition:transform .15s,color .15s;}
 .next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
 .next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
 .next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
@@ -418,13 +422,13 @@ h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t
 </div>
 
 <!-- SONRAKİ KAVRAM -->
-<div class="next">
+<a href="kavram-02-faiz.html" class="next">
   <div>
     <div class="next-label">Sıradaki Kavram</div>
     <div class="next-title">Faiz — Tek sayı nasıl her şeyi hareket ettirir?</div>
   </div>
   <div class="next-arrow">→</div>
-</div>
+</a>
 
 <div class="ft">
   <div class="ft-brand">CAK · Kavram Dizisi #1 · Mart 2026</div>

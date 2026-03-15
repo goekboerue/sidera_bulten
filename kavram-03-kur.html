@@ -50,12 +50,6 @@ h1 em{font-style:italic;color:var(--gold);}
 .hd-sub{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
 .hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
 
-.depth-bar{padding:14px 40px;background:var(--s1);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:16px;}
-.depth-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);white-space:nowrap;}
-.depth-steps{display:flex;gap:6px;flex:1;}
-.ds{flex:1;height:3px;background:var(--bd);}
-.ds.done{background:var(--t1);}
-.depth-current{font-family:'DM Mono',monospace;font-size:9px;color:var(--t2);}
 
 .sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
 .sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
@@ -150,7 +144,7 @@ h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t
 .ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
 
 @media(max-width:580px){
-  .nav,.hd,.sec,.depth-bar,.next,.ft{padding-left:20px;padding-right:20px;}
+  .nav,.hd,.sec,.next,.ft{padding-left:20px;padding-right:20px;}
   h1{font-size:36px;}
   .wl-grid{grid-template-columns:1fr;}
   .stat-row{flex-direction:column;}
@@ -182,16 +176,10 @@ h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t
   </div>
 </div>
 
-<div class="depth-bar">
-  <span class="depth-label">Derinlik</span>
-  <div class="depth-steps">
     <div class="ds done"></div>
     <div class="ds done"></div>
     <div class="ds done"></div>
-    <div class="ds done"></div>
-  </div>
-  <span class="depth-current">Sığdan derin</span>
-</div>
+  </div></div>
 
 <!-- BÖLÜM 1 -->
 <div class="sec">

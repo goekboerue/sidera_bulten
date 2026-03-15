@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram — Bankalar Nasıl Para Yaratır?</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-series{color:#1a6640;background:#eef8f2;padding:2px 8px;margin-left:auto;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--green-bd);background:var(--green-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);}
+.series-num{background:var(--green);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:46px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.sec-label.lv1{color:var(--green);}
+.sec-label.lv2{color:var(--blue);}
+.sec-label.lv3{color:var(--amber);}
+.sec-label.lv4{color:var(--red);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+
+.formula{background:var(--s1);border:1px solid var(--bd2);padding:18px 22px;margin:20px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);text-align:center;letter-spacing:.04em;}
+.formula span{color:var(--gold);}
+.formula small{display:block;font-size:11px;color:var(--t3);margin-top:8px;font-family:'DM Sans',sans-serif;letter-spacing:0;font-style:italic;}
+
+/* Para çarpanı görsel tablosu */
+.multiplier{margin:20px 0;border:1px solid var(--bd);overflow:hidden;}
+.mult-header{background:var(--t1);color:#fff;padding:10px 16px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;}
+.mult-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:1px solid var(--bd);padding:10px 16px;font-size:13px;}
+.mult-row:last-child{border-bottom:none;}
+.mult-row:nth-child(even){background:var(--s1);}
+.mult-row span:first-child{color:var(--t1);font-weight:500;}
+.mult-row span{color:var(--t2);}
+.mult-row span.new-money{color:var(--green);font-weight:500;}
+.mult-total{background:var(--gold-lt);border-top:2px solid var(--gold-bd);padding:12px 16px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:13px;}
+.mult-total span{color:var(--gold);font-weight:600;font-family:'DM Mono',monospace;}
+
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;}
+
+.summary{background:var(--s1);border-left:3px solid var(--t1);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--t1);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;color:inherit;transition:background .15s,border-color .15s;cursor:pointer;}
+.next:hover{background:var(--s2);border-top-color:var(--gold);}
+.next:hover .next-arrow{color:var(--gold);transform:translateX(4px);}
+.next:hover .next-title{color:var(--gold);}
+.next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
+.next-soon{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);border:1px solid var(--bd);padding:3px 8px;}
+.next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);transition:transform .15s,color .15s;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.next,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:32px;}
+  .mult-header,.mult-row,.mult-total{grid-template-columns:2fr 1fr 1fr;}
+  .mult-header span:last-child,.mult-row span:last-child,.mult-total span:last-child{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-series">Temel Kavramlar</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi · Temel</div>
+  <div class="series-badge">
+    <span class="series-num">T</span>
+    Temel Kavram
+  </div>
+  <h1>Bankalar Nasıl <em>Para Yaratır?</em></h1>
+  <p class="hd-sub">Çoğu insan bunu bilmez — ve bu bilgi olmadan enflasyon, kriz ve faiz tam anlaşılmaz</p>
+  <div class="hd-meta">
+    <span>Nisan 2026</span>
+    <span>·</span>
+    <span>Tüm seviyeler</span>
+    <span>·</span>
+    <span>~9 dk okuma</span>
+  </div>
+</div>
+
+<!-- BÖLÜM 1 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Şok eden gerçek</div>
+  <h2>Para sadece merkez bankası basmaz</h2>
+
+  <div class="body">
+    <p>Yaygın inanış şu: parayı yalnızca merkez bankası basar. TCMB makineleri çalıştırır, banknotlar çıkar. <strong>Bu doğru ama eksik.</strong></p>
+    <p>Gerçekte dolaşımdaki paranın büyük çoğunluğunu <strong>ticari bankalar yaratıyor</strong> — makine kullanmadan, kağıt basmadan, sıfırdan kredi açarak.</p>
+    <p>Türkiye'de bankacılık sistemindeki toplam mevduatın yalnızca küçük bir kısmı TCMB'nin bastığı fiziksel para. Geri kalanı bankaların kredi vererek yarattığı "kaydi para" — yani banka defterlerinde yazan ama fiziksel karşılığı olmayan para.</p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">Kaydi para ne demek?</div>
+    <p>Banka hesabındaki bakiye, fiziksel banknot değil — bankacılık sistemindeki bir sayı. Paranın büyük çoğunluğu bu şekilde var oluyor. Herkes aynı anda bankadan nakit çekmeye kalkışırsa sistem durur — 2008 krizinin özü buydu.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Mekanizma</div>
+  <h2>100 TL nasıl 900 TL olur?</h2>
+
+  <div class="body">
+    <p>Adım adım gösterelim. Merkez bankası ticari bankaların yalnızca <strong>mevduatın belirli bir oranını rezervde tutmasını</strong> zorunlu kılar. Kalan kısmı ödünç verebilir. Buna <strong>kısmi rezerv bankacılığı</strong> denir.</p>
+    <p>Rezerv oranı %10 olsun diyelim:</p>
+  </div>
+
+  <div class="multiplier">
+    <div class="mult-header">
+      <span>Banka</span>
+      <span>Mevduat</span>
+      <span>Rezervde tutar</span>
+      <span>Kredi verir</span>
+    </div>
+    <div class="mult-row">
+      <span>A Bankası</span>
+      <span>1.000 TL</span>
+      <span>100 TL</span>
+      <span class="new-money">900 TL</span>
+    </div>
+    <div class="mult-row">
+      <span>B Bankası</span>
+      <span>900 TL</span>
+      <span>90 TL</span>
+      <span class="new-money">810 TL</span>
+    </div>
+    <div class="mult-row">
+      <span>C Bankası</span>
+      <span>810 TL</span>
+      <span>81 TL</span>
+      <span class="new-money">729 TL</span>
+    </div>
+    <div class="mult-row">
+      <span>D Bankası</span>
+      <span>729 TL</span>
+      <span>72,9 TL</span>
+      <span class="new-money">656 TL</span>
+    </div>
+    <div class="mult-row">
+      <span style="color:var(--t3);font-style:italic;">...ve devam eder</span>
+      <span>...</span>
+      <span>...</span>
+      <span>...</span>
+    </div>
+    <div class="mult-total">
+      <span>Toplam yaratılan para</span>
+      <span>~10.000 TL</span>
+      <span>1.000 TL</span>
+      <span>~9.000 TL</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Başlangıçta 1.000 TL vardı. Sistem içinde dönüp dolaştıkça <strong>toplamda 10.000 TL'lik para yaratıldı.</strong> Bu sihir değil — matematiksel bir mekanizma. Para çarpanı = 1 / rezerv oranı = 1 / 0,10 = 10.</p>
+  </div>
+
+  <div class="formula">
+    Para Çarpanı = <span>1 ÷ Rezerv Oranı</span>
+    <small>%10 rezerv → 10 kat para · %20 rezerv → 5 kat para · %5 rezerv → 20 kat para</small>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Benzetme</div>
+    <p class="analogy-text">"Banka para yaratırken gerçekten yoktan var ediyor. Kredi açtığında hem varlık (alacak) hem yükümlülük (mevduat) doğuruyor — bilanço ikisi de aynı anda büyüyor."</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · İki farklı para</div>
+  <h2>Merkez bankası ile ticari banka arasındaki fark</h2>
+
+  <div class="body">
+    <p>Bu noktada iki farklı para türünü ayırt etmek şart. Çoğu kişi bu ayrımı bilmez ve bu yüzden sistem bulanık görünür.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th></th>
+      <th>Merkez Bankası Parası</th>
+      <th>Ticari Banka Parası</th>
+    </tr>
+    <tr>
+      <td>Kim yaratır?</td>
+      <td>TCMB (veya Fed, ECB)</td>
+      <td>Garanti, İş Bankası, Akbank vb.</td>
+    </tr>
+    <tr>
+      <td>Nasıl?</td>
+      <td>Banknot basar veya elektronik rezerv oluşturur</td>
+      <td>Kredi açarak hesaba para yazar</td>
+    </tr>
+    <tr>
+      <td>Teknik adı</td>
+      <td>Baz para / rezerv para (M0)</td>
+      <td>Kaydi para (M1, M2, M3)</td>
+    </tr>
+    <tr>
+      <td>Fiziksel karşılığı?</td>
+      <td>Banknot olabilir</td>
+      <td>Yok — sadece banka defterinde sayı</td>
+    </tr>
+    <tr>
+      <td>Garantör</td>
+      <td>Devlet</td>
+      <td>Banka (banka batarsa sigorta limiti kadar)</td>
+    </tr>
+  </table>
+
+  <div class="box b-blue">
+    <div class="box-title">M0, M1, M2 — Para tanımları</div>
+    <p><strong>M0:</strong> Dolaşımdaki fiziksel para + bankaların merkez bankasındaki rezervleri. En dar tanım.<br><br>
+    <strong>M1:</strong> M0 + vadesiz mevduatlar (hesabındaki para). Bankalar burayı yaratıyor.<br><br>
+    <strong>M2:</strong> M1 + vadeli mevduatlar. Ekonomistlerin "para arzı" derken çoğunlukla kastettiği bu.<br><br>
+    Türkiye'de M2 para arzı M0'ın yaklaşık 8–10 katı — bu fark tamamen ticari bankaların yarattığı para.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Limitler</div>
+  <h2>Bankalar sınırsız para yaratabilir mi?</h2>
+
+  <div class="body">
+    <p>Hayır. Birkaç önemli kısıt var:</p>
+  </div>
+
+  <h3>① Zorunlu karşılık oranı</h3>
+  <div class="body">
+    <p>Merkez bankası bankaların mevduatın belirli bir yüzdesini rezervde tutmasını zorunlu kılar. Bu oran artarsa bankalar daha az kredi verebilir, para çarpanı küçülür.</p>
+  </div>
+
+  <h3>② Kredi talebi</h3>
+  <div class="body">
+    <p>Banka kredi vermek ister ama alan olması lazım. Faizler çok yüksekse ya da ekonomi kötüyse kimse kredi almaz — para yaratma durur. 2008 sonrasında ABD'de tam bu oldu: Fed likidite pompaladı ama bankalar kredi vermedi, şirketler almadı.</p>
+  </div>
+
+  <h3>③ Sermaye yeterliliği</h3>
+  <div class="body">
+    <p>Bankalar verilen her kredi için belirli oranda kendi sermayelerini ayırmak zorunda. Bu uluslararası Basel kurallarıyla belirleniyor. Sermaye yetersizse kredi veremez.</p>
+  </div>
+
+  <h3>④ Batık kredi riski</h3>
+  <div class="body">
+    <p>Kredi geri ödenmezse banka zarara uğrar. Bu yüzden bankalar herkese sınırsız kredi vermez — geri almayacağını düşündüğüne vermez ya da yüksek faiz ister.</p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Sistem kırılgan: banka hücumu</div>
+    <p>Bir bankadaki mevduatın tamamı aynı anda geri çekilirse banka batar — çünkü paranın çoğu kredi olarak dışarıda. Buna "banka hücumu" (bank run) denir. Bu yüzden ülkelerin çoğunda mevduat sigortası var — Türkiye'de 150.000 TL'ye kadar TMSF güvencesi. Sigorta limiti aşan mevduatlar risklidir.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5 -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · 2008 bağlantısı</div>
+  <h2>2008 Krizi: para yaratma makinesinin çöküşü</h2>
+
+  <div class="body">
+    <p>2008 öncesi ABD'de bankalar bu mekanizmayı aşırıya taşıdı. Mortgage (konut kredisi) vererek para yarattılar, bu kredileri paketleyip tahvile dönüştürdüler, tahvilleri başka bankalara sattılar. Böylece risk görünmez hale geldi ve sistem kaldıraç üstüne kaldıraç kurdu.</p>
+    <p>Konut fiyatları düşünce domino başladı: <strong>krediler batık oldu → tahviller değersizleşti → bankalar birbirine güvenmez oldu → kredi vermek durdu → para yaratma mekanizması felç oldu → ekonomi daraldı.</strong></p>
+    <p>Fed ve diğer merkez bankaları "banka kurtarma" paketleriyle sisteme para enjekte etti. Merak edilen soru şuydu: "Bankalar para yaratıyorsa neden merkez bankası kurtarıyor?" Cevap: ticari bankaların yarattığı para güvene dayanıyor — güven yıkılırsa o para da yok oluyor.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Derin fikir</div>
+    <p class="analogy-text">"Para yaratmak kolay, yok etmek daha kolay. Kriz anında para yok olmaz — güven yok olur, ve güvensiz para işlev görmez."</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6 -->
+<div class="sec">
+  <div class="sec-label lv4">Seviye 4 · Derin sular</div>
+  <h2>Bu sistem adil mi? Eleştiriler ve savunmalar</h2>
+
+  <div class="body">
+    <p>Kısmi rezerv bankacılığı tartışmalı. İki tarafın da güçlü argümanları var.</p>
+  </div>
+
+  <h3>Sistemi eleştirenler şöyle der:</h3>
+  <div class="body">
+    <p><strong>"Bankalar yoktan para yaratıp bunun faiziyle zenginleşiyor."</strong> Kredi açtığında banka hem anapara hem faiz geri alıyor — ama başlangıçta o para yoktu. Bu özel bankalara devletin vermediği bir ayrıcalık.</p>
+    <p><strong>"Sistem borcu teşvik ediyor."</strong> Para ancak kredi açılınca var oluyor — bu yapı ekonomiyi sürekli borçlanmaya mahkûm ediyor. Borçsuz büyüme bu sistemde zor.</p>
+    <p><strong>"Kriz döneminde sıradan vatandaş kurtarılmıyor, banka kurtarılıyor."</strong> 2008'de bu öfkenin kaynağı buydu.</p>
+  </div>
+
+  <h3>Sistemi savunanlar şöyle der:</h3>
+  <div class="body">
+    <p><strong>"Kredi ekonomiyi büyütür."</strong> Girişimci sermaye bulamazsa iş kuramaz. Banka kredisi üretimi, istihdamı, refahı finanse ediyor. Sistemin olmaması daha büyük kriz demek.</p>
+    <p><strong>"Alternatifler daha kötü."</strong> %100 rezerv bankacılığı denenmiş sistemlerde kredi kıtlığı çok büyük sorun yarattı. Merkez bankası herkese doğrudan kredi dağıtırsa politik baskı kaçınılmaz.</p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Kripto'nun bu sisteme itirazı</div>
+    <p>Bitcoin ve blok zinciri bu sistemin tam karşısına konumlanıyor: bankanın izni olmadan para transferi, sınırlı arz, kısmi rezerv mekanizması yok. "Kendi bankacın ol" fikri buradan geliyor. Ama kripto da kendi güven sorunlarını çözmüş değil — merkezi borsalar, stablecoin riskleri ve regülasyon belirsizliği bu sistemin zayıf noktaları. Bunu Nisan bülteninde işleyeceğiz.</p>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label" style="color:var(--t3);">Özet · Ne öğrendik?</div>
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 6 şey</div>
+    <ul>
+      <li>Parayı sadece merkez bankası değil, <strong>ticari bankalar da kredi açarak yaratıyor.</strong></li>
+      <li><strong>Kısmi rezerv bankacılığı:</strong> 1.000 TL mevduat, %10 rezerv oranıyla sistemde 10.000 TL'ye dönüşebilir.</li>
+      <li>Merkez bankası parası (M0) ile banka parası (M1/M2) farklı — Türkiye'de M2, M0'ın yaklaşık 10 katı.</li>
+      <li>Sistem <strong>sınırsız değil:</strong> zorunlu karşılık, kredi talebi, sermaye yeterliliği ve batık kredi riski sınırlar.</li>
+      <li><strong>2008 krizi</strong> bu mekanizmanın kontrolsüz büyüdüğünde nasıl çökeceğini gösterdi.</li>
+      <li>Sistem adaleti tartışmalı — <strong>bankalar ayrıcalıklı mı, yoksa ekonomiyi büyüten bir araç mı?</strong> İki taraf da haklı noktalara sahip.</li>
+    </ul>
+  </div>
+</div>
+
+<a href="kavram-01-enflasyon.html" class="next">
+  <div>
+    <div class="next-label">Sıradaki · Temel</div>
+    <div class="next-title">Enflasyon — Paranın değeri neden erir</div>
+  </div>
+  <div class="next-arrow">→</div>
+</a>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram Dizisi · Temel · Nisan 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram — Para Nedir?</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-series{color:#1a6640;background:#eef8f2;padding:2px 8px;margin-left:auto;font-size:9px;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--green-bd);background:var(--green-lt);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);}
+.series-num{background:var(--green);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:52px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.sec-label.lv1{color:var(--green);}
+.sec-label.lv2{color:var(--blue);}
+.sec-label.lv3{color:var(--amber);}
+.sec-label.lv4{color:var(--red);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+.analogy-attr{font-size:12px;color:var(--t3);margin-top:10px;}
+
+.formula{background:var(--s1);border:1px solid var(--bd2);padding:18px 22px;margin:20px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);text-align:center;letter-spacing:.04em;}
+.formula span{color:var(--gold);}
+.formula small{display:block;font-size:11px;color:var(--t3);margin-top:8px;font-family:'DM Sans',sans-serif;letter-spacing:0;font-style:italic;}
+
+.timeline{margin:20px 0;}
+.tl-item{display:flex;gap:16px;margin-bottom:0;}
+.tl-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);width:80px;flex-shrink:0;padding-top:11px;letter-spacing:.04em;}
+.tl-body{flex:1;padding:10px 0 18px 16px;border-left:1px solid var(--bd2);}
+.tl-ev{font-size:13.5px;color:var(--t1);font-weight:500;margin-bottom:3px;}
+.tl-det{font-size:12.5px;color:var(--t2);line-height:1.55;}
+
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;}
+
+.summary{background:var(--s1);border-left:3px solid var(--t1);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--t1);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;text-decoration:none;color:inherit;transition:background .15s,border-color .15s;cursor:pointer;}
+.next:hover{background:var(--s2);border-top-color:var(--gold);}
+.next:hover .next-arrow{color:var(--gold);transform:translateX(4px);}
+.next:hover .next-title{color:var(--gold);}
+.next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
+.next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);transition:transform .15s,color .15s;}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.next,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:36px;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-series">Temel Kavramlar</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi · Temel</div>
+  <div class="series-badge">
+    <span class="series-num">T</span>
+    Temel Kavram
+  </div>
+  <h1><em>Para</em> Nedir?</h1>
+  <p class="hd-sub">Takastan kağıt paraya, kağıt paradan güvene — ve paranın arkasında gerçekte ne var</p>
+  <div class="hd-meta">
+    <span>Nisan 2026</span>
+    <span>·</span>
+    <span>Tüm seviyeler</span>
+    <span>·</span>
+    <span>~8 dk okuma</span>
+  </div>
+</div>
+
+<!-- BÖLÜM 1 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Sıfırdan başla</div>
+  <h2>Neden takas yetmedi?</h2>
+
+  <div class="body">
+    <p>Binlerce yıl önce ticaret şöyleydi: elindeki fazla buğdayı vererek ihtiyacın olan kumaşı alıyordun. Buna takas denir. Basit görünür — ama çalışması için iki tarafın da tam o anda birbirinin istediği şeye sahip olması lazım.</p>
+    <p>Balıkçı ekmek istiyor, fırıncı balık istemiyor. İşlem olmaz. <strong>Takas bu "isteklerin çifte çakışması" sorununu çözemez.</strong> Topluluklar büyüdükçe bu kör nokta giderek daha büyük bir engele dönüştü.</p>
+    <p>Çözüm: herkesin kabul ettiği <strong>bir aracı değer taşıyıcı</strong>. Buna para diyoruz.</p>
+  </div>
+
+  <div class="formula">
+    Takas: Buğday → Kumaş &nbsp;(doğrudan, ama kırılgan)
+    <br style="margin:6px 0;">
+    Para: Buğday → <span>Para</span> → Kumaş &nbsp;(dolaylı, ama esnek)
+    <small>Para, ticaretin "ortak dili" oldu</small>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Para olmadan ne olurdu?</div>
+    <p>Modern ekonomi imkânsız olurdu. Bir yazılımcı nasıl ekmek alır? Fırıncıya kod mu yazar? Para olmadan uzmanlaşma olmaz, uzmanlaşma olmadan verimlilik olmaz, verimlilik olmadan refah olmaz. Para görünmez bir altyapıdır — fark edilmez ama olmadığında her şey durur.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Paranın üç işlevi</div>
+  <h2>Para ne işe yarar? Üç temel işlev</h2>
+
+  <div class="body">
+    <p>Her şeyi "para" olarak kullanamayız. Bozulabilir, taşınamaz veya herkesin kabul etmediği şeyler para işlevi göremez. Ekonomistler paranın üç temel işlevi olduğunu söyler:</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>İşlev</th>
+      <th>Ne demek?</th>
+      <th>Örnek</th>
+    </tr>
+    <tr>
+      <td>① Değer saklama</td>
+      <td>Bugün kazanıp yarın harcayabilirsin. Bozulmaz, değerini korur.</td>
+      <td>Bugün aldığın 100 TL yarın hâlâ 100 TL (enflasyon hariç)</td>
+    </tr>
+    <tr>
+      <td>② Değişim aracı</td>
+      <td>Alışverişte herkes kabul eder. İşlemi mümkün kılar.</td>
+      <td>Markette TL ile ödüyorsun, satıcı kabul ediyor</td>
+    </tr>
+    <tr>
+      <td>③ Hesap birimi</td>
+      <td>Her şeyin fiyatı aynı birimle ifade edilir. Karşılaştırma yapılabilir.</td>
+      <td>Ekmek 20 TL, araba 500.000 TL — aynı skala</td>
+    </tr>
+  </table>
+
+  <div class="body">
+    <p>İlginç nokta: bu üç işlev bazen çatışır. Yüksek enflasyon döneminde TL değişim aracı olmaya devam eder ama <strong>değer saklama işlevini yitirir</strong>. Türkiye'de pek çok kişinin dolar tutması bu yüzden — TL'yi "hesap birimi ve değişim aracı" olarak kullanır, "değer saklama" için dolar tercih eder.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Tarihsel yolculuk</div>
+  <h2>Altından kağıda: paranın evrimi</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">M.Ö. 600</div>
+      <div class="tl-body">
+        <div class="tl-ev">İlk madeni para — Lidya (Anadolu)</div>
+        <div class="tl-det">Altın ve gümüş alaşımından basıldı. Ağırlığı ve saflığı devlet garantisi taşıyordu. Para ve devlet gücü bu andan itibaren iç içe geçti.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">7. yy</div>
+      <div class="tl-body">
+        <div class="tl-ev">İlk kağıt para — Tang Hanedanlığı Çin</div>
+        <div class="tl-det">Tüccarlar ağır madeni parayı taşımak yerine "makbuz" kullanmaya başladı. Devlet bu makbuzları standart hale getirdi. Kağıt para doğdu.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1870–1914</div>
+      <div class="tl-body">
+        <div class="tl-ev">Altın standardı — paranın altına bağlandığı dönem</div>
+        <div class="tl-det">Her banknot belirli miktarda altına karşılık geliyordu. İstersen gidip bankadan altını alabilirdin. Kur sabitti, enflasyon düşüktü — ama sistem kırılgandı.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1944</div>
+      <div class="tl-body">
+        <div class="tl-ev">Bretton Woods — dolar altına, diğerleri dolara bağlandı</div>
+        <div class="tl-det">ABD doları 35 dolar = 1 ons altın olarak sabitlendi. Diğer ülkeler paralarını dolara bağladı. Dolar "dünya rezerv parası" haline geldi.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1971</div>
+      <div class="tl-body">
+        <div class="tl-ev">Nixon şoku — altın standardının sonu</div>
+        <div class="tl-det">ABD Vietnam Savaşı masrafları için çok para bastı, altın rezervi eridi. Nixon "doları artık altınla değiştirmeyeceğiz" dedi. Fiat para çağı başladı.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1971→</div>
+      <div class="tl-body">
+        <div class="tl-ev">Fiat para dönemi — paranın arkasında sadece güven var</div>
+        <div class="tl-det">Bugün hiçbir paranın arkasında fiziksel bir karşılık yok. TL'nin değeri Türkiye ekonomisine ve TCMB'ye duyulan güvenden ibaret.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">Fiat ne demek?</div>
+    <p>Latince "öyle olsun" demek. Fiat para, devletin "bu para geçerlidir" demesiyle değer kazanan paradır. Altın, gümüş, petrol gibi fiziksel bir karşılığı yoktur. Arkasındaki tek şey: devlete ve merkez bankasına güven.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Altın standardı</div>
+  <h2>Altın standardı neden terk edildi?</h2>
+
+  <div class="body">
+    <p>Kulağa güvenilir geliyor: paranın altına bağlı olması şeffaf, sınırlı ve manipüle edilemez. Peki neden bıraktılar?</p>
+  </div>
+
+  <h3>Sorun 1: Ekonomi büyüdü, altın büyümedi</h3>
+  <div class="body">
+    <p>Ticaret hacmi her yıl büyürken yeni altın madenleri bulmak zorlaştı. Para arzı genişleyemeyince ekonomi de genişleyemiyordu. Büyüme altın bulma kapasitesine hapsoluyordu.</p>
+  </div>
+
+  <h3>Sorun 2: Kriz dönemlerinde kilitlenme</h3>
+  <div class="body">
+    <p>1929 Büyük Buhranı'nda ekonomistler "para arzını artır, ekonomiyi canlandır" dedi. Altın standardı bunu engelledi. Parasal genişleme yapılamadı, kriz derinleşti. Altın standardının katı kuralları fleksibiliteyi ortadan kaldırıyordu.</p>
+  </div>
+
+  <h3>Sorun 3: Savaş ekonomisi</h3>
+  <div class="body">
+    <p>Her iki dünya savaşında da ülkeler savaş harcamalarını karşılamak için altın standardını askıya aldı. Kriz anında ilk terk edilen şey oldu — bu da sistemin ne kadar kırılgan olduğunu gösterdi.</p>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Peki altın standardına geri dönülebilir mi?</div>
+    <p>Teoride mümkün ama pratikte imkânsız. Dünya ekonomisi bugün mevcut altın rezervlerinin çok üzerinde bir büyüklükte. Tüm parayı altına bağlamak için ya altın fiyatını astronomik seviyelere çıkarmak ya da küresel para arzını dramatik biçimde küçültmek gerekir — ikincisi ciddi bir deflasyon ve resesyon anlamına gelir.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5 -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · Güven mekanizması</div>
+  <h2>Paranın arkasında gerçekte ne var?</h2>
+
+  <div class="body">
+    <p>Cebindeki 200 TL'lik banknotun "değeri" nerede? Kağıdın maliyeti birkaç kuruş. Yazı ve resimler değer üretmiyor. <strong>Değer, kolektif bir inanç sisteminden geliyor.</strong></p>
+    <p>Herkes o kağıdın geçerli olduğunu kabul ettiği sürece geçerli. Herkes aynı anda kabul etmeyi bırakırsa — değersiz. Bu "herkesin aynı anda inanması" meselesi paranın en kırılgan ve en güçlü yanı.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Düşünce deneyi</div>
+    <p class="analogy-text">"Yarın sabah herkes cebindeki paranın artık geçerli olmadığına inanırsa — o para gerçekten geçersiz olur. Para, toplumun sürdürdüğü en büyük kolektif kurgudur."</p>
+  </div>
+
+  <div class="body">
+    <p>Bu güven üç şeye dayanıyor:</p>
+    <p><strong>① Devletin sürekliliği</strong> — Türk devleti var olduğu sürece TL'nin yasal geçerliliği var. Devlet çöktüğünde para da çöker (Zimbabwe, Weimar Almanyası).</p>
+    <p><strong>② Merkez bankasının güvenilirliği</strong> — TCMB ne kadar bağımsız ve öngörülebilirse TL'ye güven o kadar güçlü. Para politikasına güven zedelenirse dolarizasyon başlar.</p>
+    <p><strong>③ Ekonominin gücü</strong> — Arkasındaki üretim kapasitesi, ihracat, kurumlar. Güçlü ekonomi güçlü para demek — ama her zaman değil, çünkü güven soyuttur.</p>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Güven çöktüğünde: hiperenflasyon</div>
+    <p>1923 Weimar Almanyası'nda ekmek için el arabası dolusu banknot gerekiyordu. 2008 Zimbabwe'sinde 100 trilyon dolarlık banknot basıldı. Her ikisinde de devlet para bastı, halk güveni kaybetti, para değersizleşti — ve bu döngü kendini besledi. Güven kırıldığında para politikasının geri döndürmesi çok zordur.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6 -->
+<div class="sec">
+  <div class="sec-label lv4">Seviye 4 · Derin sular</div>
+  <h2>Dijital para ve Bitcoin bu tabloya nerede oturuyor?</h2>
+
+  <div class="body">
+    <p>Fiat paranın güven sorunu Bitcoin'in çıkış tezinin tam merkezinde. Satoshi Nakamoto'nun 2008'de yazdığı white paper şunu soruyordu: <em>"Güvenmek zorunda olmadığımız bir para sistemi mümkün mü?"</em></p>
+    <p>Bitcoin'in cevabı: <strong>güveni insandan matematiksel kurala kaydır.</strong> Merkez bankası kararı yok, para basma yetkisi yok, siyasi müdahale yok. Para arzı algoritmayla sabitleniyor: maksimum 21 milyon Bitcoin, 2140'a kadar kademeli üretim.</p>
+    <p>Bu "dijital altın" tezi olarak da okunuyor — sınırlı arz, bölünebilir, taşınabilir, konfiske edilmesi zor. Ama kritik fark: altının fiziksel varlığı var, Bitcoin'in varlığı da bir güven sistemine — ağın devamlılığına — dayanıyor.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th></th>
+      <th>Altın</th>
+      <th>Fiat Para (TL)</th>
+      <th>Bitcoin</th>
+    </tr>
+    <tr>
+      <td>Arzı kim kontrol eder?</td>
+      <td>Doğa (madencilik)</td>
+      <td>Merkez bankası</td>
+      <td>Algoritma (sabit)</td>
+    </tr>
+    <tr>
+      <td>Arkasındaki güven</td>
+      <td>Fiziksel nadir varlık</td>
+      <td>Devlet + MB + ekonomi</td>
+      <td>Matematik + ağ</td>
+    </tr>
+    <tr>
+      <td>Enflasyona karşı</td>
+      <td>Güçlü (tarihsel)</td>
+      <td>Zayıf (yüksek enflasyonda)</td>
+      <td>Teorik güçlü (henüz test aşamasında)</td>
+    </tr>
+    <tr>
+      <td>Günlük ödeme aracı</td>
+      <td>Pratikte hayır</td>
+      <td>Evet</td>
+      <td>Sınırlı (volatilite sorunu)</td>
+    </tr>
+  </table>
+
+  <div class="analogy">
+    <div class="analogy-tag">Derin fikir</div>
+    <p class="analogy-text">"Para tarih boyunca evrildi: takastan madene, madenden kağıda, kağıttan dijitale. Her seferinde güvenin formu değişti ama güvene olan ihtiyaç değişmedi."</p>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label" style="color:var(--t3);">Özet · Ne öğrendik?</div>
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 6 şey</div>
+    <ul>
+      <li><strong>Para</strong> takas ekonomisinin "isteklerin çifte çakışması" sorununu çözmek için ortaya çıktı.</li>
+      <li>Paranın üç işlevi: <strong>değer saklama, değişim aracı, hesap birimi.</strong> Enflasyon ilkini zedeler.</li>
+      <li><strong>Altın standardı</strong> ekonomik esnekliği kısıtladığı için 1971'de terk edildi. Geri dönmesi pratikte imkânsız.</li>
+      <li>Bugün tüm paralar <strong>fiat para</strong> — arkasında sadece güven var, fiziksel karşılık yok.</li>
+      <li>O güven <strong>devlet sürekliliği, merkez bankası güvenilirliği ve ekonomik güç</strong> üçgenine dayanıyor.</li>
+      <li><strong>Bitcoin</strong> bu güven sorusuna "algoritmayı insana güven yerine koy" diyerek cevap veriyor — ama kendi güven sorunları da var.</li>
+    </ul>
+  </div>
+</div>
+
+<a href="kavram-05-bankalar.html" class="next">
+  <div>
+    <div class="next-label">Sıradaki · Temel</div>
+    <div class="next-title">Bankalar Nasıl Para Yaratır?</div>
+  </div>
+  <div class="next-arrow">→</div>
+</a>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram Dizisi · Temel · Nisan 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>

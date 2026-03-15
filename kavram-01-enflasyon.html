@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram #01 — Enflasyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-series{color:#c9a84c;margin-left:auto;}
+
+/* NAV */
+.nav{background:var(--s1);border-bottom:1px solid var(--bd);padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:var(--t3);text-decoration:none;}
+.nav a:hover{color:var(--gold);}
+.nav-series{color:var(--gold);margin-left:auto;}
+
+/* HEADER */
+.hd{padding:48px 40px 36px;border-bottom:1px solid var(--bd);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--gold2);opacity:.5;}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold2);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.series-num{background:var(--gold);color:var(--bg);width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:52px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+/* PROGRESS BAR */
+.depth-bar{padding:16px 40px;background:var(--s1);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:16px;}
+.depth-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);white-space:nowrap;}
+.depth-steps{display:flex;gap:6px;flex:1;}
+.ds{flex:1;height:3px;background:var(--bd2);}
+.ds.done{background:var(--gold);}
+.ds.active{background:var(--gold);opacity:.5;}
+.depth-current{font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);}
+
+/* SECTION */
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.sec-label.lv1{color:var(--green);}
+.sec-label.lv2{color:var(--blue);}
+.sec-label.lv3{color:var(--amber);}
+.sec-label.lv4{color:var(--red);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:#ffffff;}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+/* CALLOUTS */
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;}
+.b-gold{background:var(--gold3);border-color:var(--gold2);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-bg);border-color:#1e3d28;}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-bg);border-color:#3d1f1f;}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-bg);border-color:#1a3650;}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-bg);border-color:#3d2e12;}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+
+/* ANALOGY CARD */
+.analogy{background:var(--s1);border:1px solid var(--bd2);padding:24px 28px;margin:20px 0;position:relative;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:12px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:20px;color:var(--t1);line-height:1.5;font-style:italic;}
+.analogy-attr{font-size:12px;color:var(--t3);margin-top:10px;}
+
+/* COMPARISON TABLE */
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--gold2);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;white-space:nowrap;}
+.ctable td.up{color:var(--green);}
+.ctable td.dn{color:var(--red);}
+.ctable td.nt{color:var(--t2);}
+
+/* STAT INLINE */
+.stat-row{display:flex;gap:1px;background:var(--bd);margin:20px 0;}
+.stat-cell{flex:1;background:var(--s1);padding:16px 18px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.stat-val{font-family:'Instrument Serif',serif;font-size:26px;color:var(--t1);line-height:1.1;}
+.stat-note{font-size:11.5px;color:var(--t2);margin-top:4px;line-height:1.4;}
+
+/* FORMULA */
+.formula{background:var(--s2);border:1px solid var(--bd2);padding:18px 22px;margin:20px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);text-align:center;letter-spacing:.04em;}
+.formula span{color:var(--gold);}
+.formula small{display:block;font-size:11px;color:var(--t3);margin-top:8px;font-family:'DM Sans',sans-serif;letter-spacing:0;font-style:italic;}
+
+/* WHO WINS/LOSES */
+.wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:20px 0;}
+.wl-cell{background:var(--s1);padding:18px;}
+.wl-head{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;}
+.wl-head.wins{color:var(--green);}
+.wl-head.loses{color:var(--red);}
+.wl-item{font-size:13.5px;color:var(--t2);padding:6px 0;border-bottom:1px solid var(--bd);line-height:1.5;}
+.wl-item:last-child{border-bottom:none;padding-bottom:0;}
+.wl-item strong{color:var(--t1);font-weight:500;}
+
+/* SUMMARY */
+.summary{background:var(--s1);border-left:3px solid var(--gold);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+/* NEXT */
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
+.next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+
+/* FOOTER */
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.depth-bar,.next,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:38px;}
+  .wl-grid{grid-template-columns:1fr;}
+  .stat-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:var(--bd2)">|</span>
+  <span class="nav-series">Kavram Dizisi</span>
+</div>
+
+<!-- HEADER -->
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi</div>
+  <div class="series-badge">
+    <span class="series-num">1</span>
+    Birinci Kavram
+  </div>
+  <h1><em>Enflasyon</em></h1>
+  <p class="hd-sub">Paranın neden erir — ve bu süreçte kim kazanır, kim kaybeder</p>
+  <div class="hd-meta">
+    <span>Mart 2026</span>
+    <span>·</span>
+    <span>Tüm seviyeler</span>
+    <span>·</span>
+    <span>~8 dk okuma</span>
+  </div>
+</div>
+
+<!-- DERINLIK GÖSTERGESI -->
+<div class="depth-bar">
+  <span class="depth-label">Derinlik</span>
+  <div class="depth-steps">
+    <div class="ds done"></div>
+    <div class="ds done"></div>
+    <div class="ds done"></div>
+    <div class="ds done"></div>
+  </div>
+  <span class="depth-current">Sığdan derin</span>
+</div>
+
+<!-- BÖLÜM 1: SIFIRDAN -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Sıfırdan başla</div>
+  <h2>Ekmek neden pahalılaştı?</h2>
+
+  <div class="body">
+    <p>Bugün ekmek 20 lira, simit 15 lira. Birkaç yıl önce bunların yarısıydı. Ekmek değişmedi — aynı un, aynı maya, aynı fırın. Ama fiyatı arttı. Yani aynı para ile artık daha az ekmek alabiliyorsun. <strong>Paranın değeri düştü.</strong> Buna enflasyon denir.</p>
+    <p>Daha sade bir formülle:</p>
+  </div>
+
+  <div class="formula">
+    Aynı para → <span>daha az şey</span> = Enflasyon
+    <small>Ya da tersinden: Aynı şey → daha fazla para gerekiyor</small>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Benzetme</div>
+    <p class="analogy-text">"Enflasyon, parasını yastığın altında saklayan herkese sessizce vergi kesen bir mekanizmadır."</p>
+    <div class="analogy-attr">— Milton Friedman'ın sıklıkla aktarılan gözlemi, sadeleştirilmiş</div>
+  </div>
+
+  <div class="body">
+    <p>Enflasyon tek bir ürünün fiyat artışı değil. Genel fiyat seviyesinin yükselmesi. Ekmek pahalılaşırken kiranın düşmesi enflasyon değil. Ekmek, kira, ulaşım, giyim — hepsinin ortalama fiyatı artıyorsa, o ülkede enflasyon var demektir.</p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Türkiye'den somut örnek</div>
+    <p>2003'te İstanbul'da ortalama kira 300 dolar civarındaydı. 2024'te aynı semt için 1.500 dolar. Dolar bazında bile 5 kat arttı — TL bazında çok daha fazla. Bu, enflasyonun birikerek çalıştığının en elle tutulur göstergesi.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2: NASIL ÖLÇÜLÜR -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Nasıl ölçülür?</div>
+  <h2>TÜFE, ÜFE ve CPI: Hangi rakama bakmak lazım?</h2>
+
+  <div class="body">
+    <p>Enflasyonu ölçmek için devlet istatistik kurumları her ay bir "sepet" oluşturur. Bu sepet; ekmek, kira, elektrik, ulaşım gibi ortalama bir hanenin harcadığı şeyleri içerir. Sepetin fiyatı geçen aya göre ne kadar arttıysa — o oran enflasyondur.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Gösterge</th>
+      <th>Ne ölçer?</th>
+      <th>Kime önemli?</th>
+    </tr>
+    <tr>
+      <td>TÜFE</td>
+      <td>Tüketici Fiyat Endeksi — hane halkının alışveriş sepeti</td>
+      <td class="nt">Herkes. En takip edilen gösterge.</td>
+    </tr>
+    <tr>
+      <td>ÜFE</td>
+      <td>Üretici Fiyat Endeksi — fabrika çıkış fiyatları</td>
+      <td class="nt">ÜFE yükselirse, TÜFE 2–3 ay sonra yükselir. Erken sinyal.</td>
+    </tr>
+    <tr>
+      <td>CPI</td>
+      <td>ABD'nin TÜFE'si. Küresel piyasaların takip ettiği</td>
+      <td class="nt">Fed kararlarını şekillendirir, dolayısıyla tüm dünyayı etkiler.</td>
+    </tr>
+    <tr>
+      <td>PCE</td>
+      <td>Kişisel Tüketim Harcamaları — Fed'in tercihli ölçütü</td>
+      <td class="nt">CPI'dan biraz daha düşük çıkar ama Fed bunu baz alır.</td>
+    </tr>
+  </table>
+
+  <div class="box b-blue">
+    <div class="box-title">Neden rakamlar tartışmalıdır?</div>
+    <p>Resmi TÜFE ile vatandaşın hissettiği enflasyon çoğu zaman örtüşmez. Çünkü sepet ortalamayı temsil eder — seninki farklıdır. Kiracıysanız kira ağırlığı çok önemlidir; arabanız yoksa yakıt önemsizdir. "Benim enflasyonum" her zaman resmi rakamdan farklıdır.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3: NEDEN OLUR -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Kaynakları</div>
+  <h2>Enflasyon nereden gelir?</h2>
+
+  <div class="body">
+    <p>Her enflasyon aynı değildir. Kaynağı farklıysa tedavisi de farklıdır. Üç temel tür var:</p>
+  </div>
+
+  <h3>① Talep çekişi</h3>
+  <div class="body">
+    <p>Herkesin elinde para çoğalır, ama üretilen mal aynı kalır. Herkes aynı ekmeği almaya çalışınca fiyat artar. Pandemi sonrası pek çok ülkede yaşanan bu buydu — devletler trilyonlarca dolar dağıttı, üretim hemen toparlanamadı.</p>
+  </div>
+
+  <h3>② Maliyet itkisi</h3>
+  <div class="body">
+    <p>Üretmek pahalılaşır, bu maliyet fiyata yansır. Petrol fiyatı arttığında önce nakliye pahalılaşır, sonra fabrika girdileri, sonra market rafları. 2022'deki petrol şoku ve şimdiki Hürmüz krizi bu kanaldan çalışıyor.</p>
+  </div>
+
+  <h3>③ Para arzı genişlemesi</h3>
+  <div class="body">
+    <p>Merkez bankası çok fazla para basar. Piyasadaki para artınca her birim paranın değeri düşer — yani enflasyon olur. Türkiye'nin 2021–2023 döneminde yaşadığı bu mekanizmanın klasik bir örneğiydi.</p>
+  </div>
+
+  <div class="box b-amber">
+    <div class="box-title">Stagflasyon: En kötü senaryo</div>
+    <p>Üç tür bazen aynı anda gelir. Enflasyon yüksek, büyüme durmuş, işsizlik artıyor. Buna stagflasyon denir. Tehlikeli çünkü merkez bankası faiz artırırsa zaten durgun ekonomiyi daha da vurur, artırmazsa enflasyon körüklenir. Her iki yönde hareket edecek yer kalmaz. 1970'lerin ABD'si bu tuzağa düştü. 2026'nın şimdiki tablosu bu riski yeniden gündemin üstüne taşıdı.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4: KİM KAZANIR KİM KAYBEDER -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · Dağılım</div>
+  <h2>Kim kazanır, kim kaybeder?</h2>
+
+  <div class="body">
+    <p>Enflasyon herkes için eşit değil. Varlıklarına ve borçlarına göre insanları farklı etkiler. Bu dağılımı anlamak, kendi pozisyonunu anlamaktır.</p>
+  </div>
+
+  <div class="wl-grid">
+    <div class="wl-cell">
+      <div class="wl-head wins">▲ Kazananlar</div>
+      <div class="wl-item"><strong>Borçlular</strong> — Borcun reel değeri erir. 10 yıl önce aldığın 500.000 TL konut kredisi şimdi çok daha hafif.</div>
+      <div class="wl-item"><strong>Gayrimenkul sahipleri</strong> — Fiyatlar enflasyonla birlikte yükselir, borç sabitlenir.</div>
+      <div class="wl-item"><strong>Emtia tutanlar</strong> — Altın, gümüş, petrol fiyatları enflasyonla korelasyon gösterir.</div>
+      <div class="wl-item"><strong>Hisse senedi sahipleri</strong> — Şirket varlıkları ve fiyatları enflasyona uyum sağlar. Ama her koşulda değil.</div>
+    </div>
+    <div class="wl-cell">
+      <div class="wl-head loses">▼ Kaybedenler</div>
+      <div class="wl-item"><strong>Nakit tutanlar</strong> — Her geçen gün paranın değeri düşüyor. Yastık altı en büyük kayıp.</div>
+      <div class="wl-item"><strong>Sabit maaşlılar</strong> — Maaş enflasyona yetişmezse reel gelir düşer. Türkiye'de yıllarca yaşandı.</div>
+      <div class="wl-item"><strong>Tahvil ve mevduat sahipleri</strong> — Faiz enflasyonun altındaysa reel getiri negatif.</div>
+      <div class="wl-item"><strong>Tasarruf sahipleri</strong> — Biriktirilen TL erir. "İleride kullanırım" diyenler sessizce soyulur.</div>
+    </div>
+  </div>
+
+  <div class="box b-red">
+    <div class="box-title">Enflasyonun görünmez vergisi</div>
+    <p>Türkiye'de 2021 başında 100.000 TL birikiminiz varsa ve faiz almadan tuttunuz — 2023 sonunda bu para satın alma gücü olarak yaklaşık 25.000–30.000 TL'ye karşılık geliyordu. Bir kuruş dokunmadınız, ama reel olarak dörtte birini kaybettiniz. Enflasyon habersiz, sessizce çalışır.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5: MERKEZ BANKASI -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · Tedavi</div>
+  <h2>Merkez bankası ne yapabilir — ve sınırı nerede?</h2>
+
+  <div class="body">
+    <p>Enflasyonla savaşın en bilinen silahı faiz artışıdır. Mantık basit: Faiz yükselince borçlanmak pahalılaşır, tüketim yavaşlar, talep düşer, fiyatlar gevşer.</p>
+  </div>
+
+  <div class="formula">
+    Faiz ↑ → Kredi pahalı → Harcama ↓ → Talep ↓ → <span>Enflasyon ↓</span>
+    <small>Ama bu süreç 6–18 ay sürer. Anlık etki yoktur.</small>
+  </div>
+
+  <div class="body">
+    <p>Sorun şu: Faiz artışının yan etkileri var. <strong>Büyüme yavaşlar. İşsizlik artabilir. Şirketler yatırım yapamaz.</strong> Bu yüzden merkez bankacılığı bir denge sanatıdır — ne kadar, ne zaman, ne hızda?</p>
+    <p>Türkiye bu savaşı 2021–2023 arasında tam tersi yönde verdi: Enflasyon %85'e çıkarken faiz düşürüldü. Sonuç TL'nin hızlı değer kaybıydı. 2023'ten itibaren ortodoks politikaya dönüş başladı — faiz sert şekilde artırıldı. Enflasyon yavaşlamaya başladı ama tam olarak kontrol altına alınamadı.</p>
+  </div>
+
+  <div class="box b-green">
+    <div class="box-title">Merkez bankası bağımsızlığı neden önemli?</div>
+    <p>Merkez bankaları siyasi baskıdan bağımsız olmak zorunda — çünkü enflasyonla savaş seçim öncesi oy kaybettirir. Faiz artırmak kısa vadede acıtır. Bu yüzden tarihsel olarak bağımsız merkez bankaları enflasyonu daha iyi kontrol etmiştir. Bir sonraki kavram bültenlerinde bu konuya döneceğiz.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 6: DERİN SULAR -->
+<div class="sec">
+  <div class="sec-label lv4">Seviye 4 · Derin sular</div>
+  <h2>Hiç enflasyon olmaması iyi midir?</h2>
+
+  <div class="body">
+    <p>Sezgisel cevap "evet" — ama ekonomistler buna itiraz eder. <strong>Sıfır enflasyon veya deflasyon (fiyatların düşmesi) tehlikeli olabilir.</strong></p>
+    <p>Neden? Fiyatlar düşüyorsa insanlar "daha da düşer" diye bekler. Harcama ertelenir. Şirketler satamaz, üretimi kısar, işçi çıkarır. Büyüme durur. Bu deflayon tuzağı — Japonya 1990'lardan 2010'lara bu döngüde kaldı ve "Kayıp On Yıllar" denen bir durgunluk yaşadı.</p>
+    <p>Bu yüzden Fed ve TCMB dahil çoğu merkez bankasının hedefi <strong>%2 enflasyon</strong>. Sıfır değil. Hafif enflasyon ekonomiyi yağlar: borçlanmayı teşvik eder, yatırımı cazip kılar, harcamayı ötelemez.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">Fed hedefi</div>
+      <div class="stat-val">%2</div>
+      <div class="stat-note">1990'lardan bu yana değişmedi</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">TCMB hedefi</div>
+      <div class="stat-val">%5</div>
+      <div class="stat-note">2025 sonu için resmi hedef</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">ABD (Şubat 2026)</div>
+      <div class="stat-val">%2,4</div>
+      <div class="stat-note">Hedefin üstünde, yapışkan</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Bir de <strong>enflasyon beklentisi</strong> var — belki en tehlikeli boyut. Eğer insanlar "enflasyon devam edecek" diye beklerse, bu beklenti kendi kendini doğrular. İşçiler yüksek zam ister, şirketler fiyatı önceden artırır, kiraya verenler sözleşmeye yüksek zam koyar. Beklenti enflasyonu besler. Bu döngüyü kırmak için merkez bankalarının en önemli silahı <em>güvenilirlik</em>tir — söylediklerinin ciddiye alınması.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Derin fikir</div>
+    <p class="analogy-text">"Enflasyon her zaman ve her yerde parasal bir olgudur." — Friedman bunu söyledi. Ama modern ekonomistler ekler: beklentiler, tedarik zincirleri ve jeopolitik de en az para arzı kadar belirleyicidir. Gerçek karmaşıktır.</p>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label" style="color:var(--gold);">Özet · Ne öğrendik?</div>
+
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 6 şey</div>
+    <ul>
+      <li><strong>Enflasyon</strong> = aynı para ile daha az şey alabilmek. Fiyatlar değil, paranın değeri değişiyor.</li>
+      <li>TÜFE resmi ölçüt ama <strong>"senin enflasyonun"</strong> harcama alışkanlığına göre farklıdır.</li>
+      <li>Enflasyon <strong>talep artışından, maliyet artışından veya para basımından</strong> doğabilir — ve üçü aynı anda gelebilir.</li>
+      <li><strong>Borçlular ve varlık sahipleri</strong> enflasyondan kazanır. <strong>Nakit ve sabit gelir tutanlar</strong> kaybeder.</li>
+      <li>Merkez bankasının temel silahı faiz — ama <strong>etkisi gecikmelidir</strong>, anlık değil.</li>
+      <li><strong>Hafif enflasyon kasıtlı bir hedeftir</strong> — deflasyon da en az yüksek enflasyon kadar tehlikelidir.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SONRAKİ KAVRAM -->
+<div class="next">
+  <div>
+    <div class="next-label">Sıradaki Kavram</div>
+    <div class="next-title">Faiz — Tek sayı nasıl her şeyi hareket ettirir?</div>
+  </div>
+  <div class="next-arrow">→</div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram Dizisi #1 · Mart 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>

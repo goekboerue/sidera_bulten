@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAK · Kavram #03 — Kur</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ee;
+  --s1: #eceae4;
+  --s2: #e2e0d8;
+  --bd: #d0cec4;
+  --bd2: #b8b6ac;
+  --t1: #18171a;
+  --t2: #4a4858;
+  --t3: #888698;
+  --gold: #8a6820;
+  --gold-lt: #f5edd8;
+  --gold-bd: #c8a84c;
+  --red: #b03030;
+  --red-lt: #fdf0f0;
+  --red-bd: #e8a0a0;
+  --green: #1a6640;
+  --green-lt: #eef8f2;
+  --green-bd: #88cca8;
+  --blue: #1848a0;
+  --blue-lt: #eef3fc;
+  --blue-bd: #90b0e8;
+  --amber: #8a4c10;
+  --amber-lt: #fdf4ea;
+  --amber-bd: #e0b078;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.75;max-width:700px;margin:0 auto;padding:0 0 100px;}
+
+.nav{background:#18171a;border-bottom:1px solid #2a2830;padding:11px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:14px;}
+.nav a{color:#888;text-decoration:none;}
+.nav a:hover{color:#c9a84c;}
+.nav-series{color:#c9a84c;margin-left:auto;}
+
+.hd{padding:48px 40px 36px;border-bottom:2px solid var(--t1);}
+.kicker{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.kicker::after{content:'';flex:1;height:1px;background:var(--bd2);}
+.series-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--bd2);padding:5px 12px;margin-bottom:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t2);}
+.series-num{background:var(--t1);color:#fff;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+h1{font-family:'Instrument Serif',serif;font-size:52px;font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:8px;color:var(--t1);}
+h1 em{font-style:italic;color:var(--gold);}
+.hd-sub{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;font-style:italic;color:var(--t2);margin-bottom:18px;line-height:1.4;}
+.hd-meta{display:flex;gap:20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:.1em;}
+
+.depth-bar{padding:14px 40px;background:var(--s1);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:16px;}
+.depth-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);white-space:nowrap;}
+.depth-steps{display:flex;gap:6px;flex:1;}
+.ds{flex:1;height:3px;background:var(--bd);}
+.ds.done{background:var(--t1);}
+.depth-current{font-family:'DM Mono',monospace;font-size:9px;color:var(--t2);}
+
+.sec{padding:32px 40px;border-bottom:1px solid var(--bd);}
+.sec-label{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bd);}
+.sec-label.lv1{color:var(--green);}
+.sec-label.lv2{color:var(--blue);}
+.sec-label.lv3{color:var(--amber);}
+.sec-label.lv4{color:var(--red);}
+h2{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;line-height:1.2;margin-bottom:16px;color:var(--t1);}
+h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--t1);margin:20px 0 8px;}
+.body{font-size:15px;color:var(--t2);line-height:1.8;}
+.body p{margin-bottom:14px;}
+.body p:last-child{margin-bottom:0;}
+.body strong{color:var(--t1);font-weight:500;}
+.body em{font-style:italic;color:var(--t1);}
+
+.box{border:1px solid;padding:18px 22px;margin:20px 0;font-size:14px;line-height:1.7;}
+.box-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;font-weight:500;}
+.b-gold{background:var(--gold-lt);border-color:var(--gold-bd);}
+.b-gold .box-title{color:var(--gold);}
+.b-gold p{color:var(--t2);}
+.b-green{background:var(--green-lt);border-color:var(--green-bd);}
+.b-green .box-title{color:var(--green);}
+.b-green p{color:var(--t2);}
+.b-red{background:var(--red-lt);border-color:var(--red-bd);}
+.b-red .box-title{color:var(--red);}
+.b-red p{color:var(--t2);}
+.b-blue{background:var(--blue-lt);border-color:var(--blue-bd);}
+.b-blue .box-title{color:var(--blue);}
+.b-blue p{color:var(--t2);}
+.b-amber{background:var(--amber-lt);border-color:var(--amber-bd);}
+.b-amber .box-title{color:var(--amber);}
+.b-amber p{color:var(--t2);}
+
+.analogy{background:var(--s1);border-left:3px solid var(--bd2);padding:20px 24px;margin:20px 0;}
+.analogy-tag{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.analogy-text{font-family:'Instrument Serif',serif;font-size:19px;color:var(--t1);line-height:1.5;font-style:italic;}
+.analogy-attr{font-size:12px;color:var(--t3);margin-top:10px;}
+
+.formula{background:var(--s1);border:1px solid var(--bd2);padding:18px 22px;margin:20px 0;font-family:'DM Mono',monospace;font-size:13px;color:var(--t1);text-align:center;letter-spacing:.04em;}
+.formula span{color:var(--gold);}
+.formula small{display:block;font-size:11px;color:var(--t3);margin-top:8px;font-family:'DM Sans',sans-serif;letter-spacing:0;font-style:italic;}
+
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px;}
+.ctable th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;border-bottom:2px solid var(--t1);text-align:left;color:var(--t3);}
+.ctable td{padding:12px 14px;border-bottom:1px solid var(--bd);color:var(--t2);vertical-align:top;line-height:1.6;}
+.ctable tr:last-child td{border-bottom:none;}
+.ctable td:first-child{color:var(--t1);font-weight:500;}
+
+.stat-row{display:flex;gap:1px;background:var(--bd);margin:20px 0;}
+.stat-cell{flex:1;background:var(--s1);padding:16px 18px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.stat-val{font-family:'Instrument Serif',serif;font-size:26px;color:var(--t1);line-height:1.1;}
+.stat-note{font-size:11.5px;color:var(--t2);margin-top:4px;line-height:1.4;}
+
+.wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd);margin:20px 0;}
+.wl-cell{background:var(--s1);padding:18px;}
+.wl-head{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;}
+.wl-head.wins{color:var(--green);}
+.wl-head.loses{color:var(--red);}
+.wl-item{font-size:13.5px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);line-height:1.55;}
+.wl-item:last-child{border-bottom:none;padding-bottom:0;}
+.wl-item strong{color:var(--t1);font-weight:500;}
+
+.tl-item{display:flex;gap:16px;margin-bottom:4px;}
+.tl-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);width:56px;flex-shrink:0;padding-top:11px;letter-spacing:.04em;}
+.tl-body{flex:1;padding:10px 0 10px 16px;border-left:1px solid var(--bd2);margin-bottom:10px;}
+.tl-ev{font-size:13.5px;color:var(--t1);font-weight:500;margin-bottom:3px;}
+.tl-det{font-size:12.5px;color:var(--t2);line-height:1.55;}
+
+.summary{background:var(--s1);border-left:3px solid var(--t1);padding:24px 28px;margin:28px 0;}
+.summary-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.summary ul{list-style:none;padding:0;}
+.summary li{font-size:14px;color:var(--t2);padding:7px 0;border-bottom:1px solid var(--bd);padding-left:16px;position:relative;line-height:1.6;}
+.summary li::before{content:'→';position:absolute;left:0;color:var(--t1);font-family:'DM Mono',monospace;font-size:11px;}
+.summary li:last-child{border-bottom:none;}
+.summary li strong{color:var(--t1);font-weight:500;}
+
+.next{padding:28px 40px;background:var(--s1);border-top:2px solid var(--bd2);display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.next-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;}
+.next-title{font-family:'Instrument Serif',serif;font-size:18px;color:var(--t1);}
+.next-arrow{font-family:'DM Mono',monospace;font-size:20px;color:var(--gold);}
+
+.ft{padding:20px 40px;border-top:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;}
+.ft-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);}
+.ft-disc{font-size:11px;color:var(--t3);text-align:right;line-height:1.5;}
+
+@media(max-width:580px){
+  .nav,.hd,.sec,.depth-bar,.next,.ft{padding-left:20px;padding-right:20px;}
+  h1{font-size:36px;}
+  .wl-grid{grid-template-columns:1fr;}
+  .stat-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Tüm Bültenler</a>
+  <span style="color:#444">|</span>
+  <span class="nav-series">Kavram Dizisi</span>
+</div>
+
+<div class="hd">
+  <div class="kicker">CAK · Kavram Dizisi</div>
+  <div class="series-badge">
+    <span class="series-num">3</span>
+    Üçüncü Kavram
+  </div>
+  <h1><em>Kur</em></h1>
+  <p class="hd-sub">TL neden değer kaybeder — ve bu kaçınılmaz mı?</p>
+  <div class="hd-meta">
+    <span>Nisan 2026</span>
+    <span>·</span>
+    <span>Tüm seviyeler</span>
+    <span>·</span>
+    <span>~8 dk okuma</span>
+  </div>
+</div>
+
+<div class="depth-bar">
+  <span class="depth-label">Derinlik</span>
+  <div class="depth-steps">
+    <div class="ds done"></div>
+    <div class="ds done"></div>
+    <div class="ds done"></div>
+    <div class="ds done"></div>
+  </div>
+  <span class="depth-current">Sığdan derin</span>
+</div>
+
+<!-- BÖLÜM 1 -->
+<div class="sec">
+  <div class="sec-label lv1">Seviye 1 · Sıfırdan başla</div>
+  <h2>Neden 1 dolar 44 TL?</h2>
+
+  <div class="body">
+    <p>Döviz kuru basitçe şunu söyler: bir ülkenin parasını başka bir parayla değiştirmek için kaç birim vermek gerekiyor? USD/TRY = 44 demek, 1 dolar almak için 44 TL veriyorsun demek.</p>
+    <p>Ama bu rakam nereden geliyor? Sabitlemiyor kimse onu — <strong>arz ve talep belirliyor.</strong> Dünyada TL'ye talep varsa değeri yükselir, talep azalırsa düşer. Ve Türkiye'de talep çoğunlukla azalıyor — çünkü bunun birkaç yapısal nedeni var.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Benzetme</div>
+    <p class="analogy-text">"Kur, iki ülke ekonomisinin birbirine göre gücünü anlık olarak fiyatlayan termometredir. Ama termometre hastalığın nedeni değil, göstergesidir."</p>
+  </div>
+
+  <div class="box b-gold">
+    <div class="box-title">Türkiye'nin kur hafızası</div>
+    <p>2003'te 1 dolar yaklaşık 1,5 TL idi. 2013'te 2 TL, 2018'de 7 TL, 2021'de 9 TL, 2023'te 27 TL. 2026'da 44 TL civarında. 20 yılda TL dolara karşı değerinin yaklaşık %97'sini yitirdi. Bu bir rastlantı değil — yapısal sebepleri olan bir eğilim.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 2 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Neden değer kaybeder?</div>
+  <h2>TL'yi aşındıran 5 güç</h2>
+
+  <div class="body">
+    <p>Kur tek bir nedenle değil, birlikte çalışan birkaç mekanizmayla hareket eder. Bunları anlamak, haberlerdeki "TL neden düştü" sorularına kendin cevap verebilmeni sağlar.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Neden</th>
+      <th>Nasıl çalışır?</th>
+    </tr>
+    <tr>
+      <td>① Enflasyon farkı</td>
+      <td>Türkiye'de enflasyon ABD'den yüksekse TL doğal olarak erir. "Satın alma gücü paritesi" bunu matematikle gösterir.</td>
+    </tr>
+    <tr>
+      <td>② Cari açık</td>
+      <td>Türkiye enerji ve ara malını dışarıdan alıyor, ihracatı bunu karşılamıyor. Dolar çıkışı TL talebini azaltıyor.</td>
+    </tr>
+    <tr>
+      <td>③ Faiz politikası</td>
+      <td>Reel faiz negatif olunca TL tutmak cazip değil. Yabancı sermaye çıkıyor, TL değer kaybediyor.</td>
+    </tr>
+    <tr>
+      <td>④ Güven ve beklenti</td>
+      <td>Merkez bankası bağımsızlığı sorgulanınca veya siyasi kriz olunca spekülatif satış dalgası gelir.</td>
+    </tr>
+    <tr>
+      <td>⑤ Küresel risk iştahı</td>
+      <td>Dünyada "risk off" modu hakim olunca gelişmekte olan ülke paraları (TL dahil) toplu satılır.</td>
+    </tr>
+  </table>
+
+  <div class="box b-red">
+    <div class="box-title">Kısır döngü riski</div>
+    <p>TL düşünce ithal ürünler pahalılaşır → enflasyon artar → reel faiz düşer → TL daha da düşer. Bu döngü kırılmadan para birimine güven inşa etmek çok zor. Türkiye bu döngüyle 2021–2023 arasında ciddi biçimde yüzleşti.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 3 -->
+<div class="sec">
+  <div class="sec-label lv2">Seviye 2 · Kur rejimleri</div>
+  <h2>Serbest mi, sabit mi, yönetimli mi?</h2>
+
+  <div class="body">
+    <p>Her ülke parasını farklı yönetir. Bu tercih ekonominin kaderini şekillendirir.</p>
+  </div>
+
+  <table class="ctable">
+    <tr>
+      <th>Rejim</th>
+      <th>Ne demek?</th>
+      <th>Örnek</th>
+    </tr>
+    <tr>
+      <td>Serbest kur</td>
+      <td>Piyasa belirler. Merkez bankası müdahale etmez (ya da çok az eder).</td>
+      <td>ABD doları, euro, Japon yeni</td>
+    </tr>
+    <tr>
+      <td>Sabit kur</td>
+      <td>Para başka bir paraya sabitlenir. Merkez bankası rezerv harcayarak sabit tutar.</td>
+      <td>Hong Kong doları (USD'ye sabit)</td>
+    </tr>
+    <tr>
+      <td>Yönetimli dalgalanma</td>
+      <td>Teoride serbest ama pratikte merkez bankası aşırı hareketlerde müdahale eder.</td>
+      <td>Türkiye (fiili durum)</td>
+    </tr>
+    <tr>
+      <td>Dolarizasyon</td>
+      <td>Kendi para birimi terk edilir, başka ülkenin parası kullanılır.</td>
+      <td>Ekvador, El Salvador</td>
+    </tr>
+  </table>
+
+  <div class="box b-amber">
+    <div class="box-title">Sabit kur neden tehlikeli?</div>
+    <p>Cazip görünür — kur belirsizliği kalkar, enflasyon düşer gibi algılanır. Ama piyasa gerçeğiyle aradaki fark büyüyünce rezerv biter ve kur aniden çöker. Arjantin bunu defalarca yaşadı. Türkiye de 2001'de benzer bir krizden geçti.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 4 -->
+<div class="sec">
+  <div class="sec-label lv3">Seviye 3 · Kimin işine yarar?</div>
+  <h2>Kur düşünce kim kazanır, kim kaybeder?</h2>
+
+  <div class="wl-grid">
+    <div class="wl-cell">
+      <div class="wl-head wins">▲ TL değer kaybedince kazananlar</div>
+      <div class="wl-item"><strong>İhracatçılar</strong> — Dolar gelirleri TL'ye çevrilince daha fazla kazanıyor.</div>
+      <div class="wl-item"><strong>Döviz tasarruf edenler</strong> — USD/EUR cinsinden birikimi olanlar TL bazında zenginleşiyor.</div>
+      <div class="wl-item"><strong>Turizm sektörü</strong> — Yabancı turist için Türkiye ucuzluyor, talep artıyor.</div>
+      <div class="wl-item"><strong>Dövizli geliri olanlar</strong> — Yurt dışında çalışanlar, serbest çalışanlar.</div>
+    </div>
+    <div class="wl-cell">
+      <div class="wl-head loses">▼ TL değer kaybedince kaybedenler</div>
+      <div class="wl-item"><strong>İthalatçılar</strong> — Hammadde, enerji, teknoloji maliyeti fırlar.</div>
+      <div class="wl-item"><strong>TL mevduatçılar</strong> — Dolar bazında değer eriyor.</div>
+      <div class="wl-item"><strong>Dövizli borçlular</strong> — Dolar borcu olan şirket ve devlet daha fazla TL ödemek zorunda.</div>
+      <div class="wl-item"><strong>Sabit ücretliler</strong> — Maaş TL sabitken ithal mallar pahalılaşıyor.</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Türkiye için asıl sorun şu: <strong>enerji ve ara mal ithalatı zorunlu</strong> — alternatifi yok. Bu yüzden TL değer kaybı doğrudan enflasyona yansıyor. Bir üst kavramla (enflasyon) bu bağlantı kopuk değil, iç içe.</p>
+  </div>
+</div>
+
+<!-- BÖLÜM 5 -->
+<div class="sec">
+  <div class="sec-label lv4">Seviye 4 · Derin sular</div>
+  <h2>Bu kaçınılmaz mı? Ve ne yapılabilir?</h2>
+
+  <div class="body">
+    <p>TL'nin uzun vadeli değer kaybı yazgı mı, politika hatası mı? İkisi de — ama oranları tartışmalı.</p>
+  </div>
+
+  <h3>Yapısal kısıtlar — değişmesi zor olanlar</h3>
+  <div class="body">
+    <p>Türkiye enerji ithalatçısı bir ülke. Cari açık yapısal — enerjide dışa bağımlılık sürse de bu devam eder. Gelişmekte olan ülke paraları tarihsel olarak rezerv paralara (dolar, euro) karşı zayıflar. Bu trend sadece Türkiye'ye özgü değil — ama Türkiye bu trendi hızlandıran politikalar da uyguladı.</p>
+  </div>
+
+  <h3>Değiştirilebilir olanlar — politika alanı</h3>
+  <div class="body">
+    <p><strong>Merkez bankası güvenilirliği:</strong> Bağımsız ve öngörülebilir para politikası TL'ye güveni artırır, spekülatif baskıyı azaltır. 2023 sonrası ortodoks dönüş bu amaçla yapıldı — etkisi yavaş ama görülüyor.</p>
+    <p><strong>Enflasyonu düşürmek:</strong> Enflasyon farkı kapandıkça kurun erimesi yavaşlar. Teorik olarak enflasyon farkı sıfırlanırsa kur da istikrar kazanır.</p>
+    <p><strong>Dış finansman:</strong> Doğrudan yabancı yatırım ve turizm geliri dolar girişi sağlar, cari açığı finanse eder, kuru destekler.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">USD/TRY (2003)</div>
+      <div class="stat-val">1,5</div>
+      <div class="stat-note">Referans başlangıç noktası</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">USD/TRY (Mart 2026)</div>
+      <div class="stat-val">~44</div>
+      <div class="stat-note">23 yılda 29 kat artış</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">TCMB Brüt Rezervi (toplam)</div>
+      <div class="stat-val">~$198 Mr</div>
+      <div class="stat-note">Altın dahil. Net (swap hariç) ~$79 milyar. Mar 2026.</div>
+    </div>
+  </div>
+
+  <div class="box b-blue">
+    <div class="box-title">Dolarizasyon tuzağı: Korunmak mu, teslim olmak mı?</div>
+    <p>Türkiye'de birçok kişi tasarrufunu dolara çeviriyor — mantıklı bir bireysel karar. Ama herkes aynı anda yapınca TL'ye talep düşer, kur daha da erir. Bireysel olarak rasyonel, toplumsal olarak kısır döngü. Buna "dolarizasyon tuzağı" denir. Kur korumalı mevduat (KKM) bu tuzağı kırmak için tasarlanmıştı — ama maliyeti devlet bilançosuna yükledi.</p>
+  </div>
+
+  <div class="analogy">
+    <div class="analogy-tag">Derin fikir</div>
+    <p class="analogy-text">"Kur bir ülkenin parasına duyulan güvenin fiyatıdır. Güven inşa etmek on yıl alır, kaybetmek bir gece sürer."</p>
+  </div>
+</div>
+
+<!-- ÖZET -->
+<div class="sec" style="border-bottom:none;">
+  <div class="sec-label" style="color:var(--t3);">Özet · Ne öğrendik?</div>
+  <div class="summary">
+    <div class="summary-label">Bu bültenden 6 şey</div>
+    <ul>
+      <li><strong>Kur</strong> = iki ülke parasının birbirine göre değeri. Piyasa belirler, termometre gibi çalışır.</li>
+      <li>TL değer kaybının 5 nedeni: <strong>enflasyon farkı, cari açık, faiz politikası, güven, küresel risk iştahı.</strong></li>
+      <li>Kur rejimleri farklıdır — Türkiye <strong>yönetimli dalgalanma</strong> uygular, rezerv harcayarak müdahale eder.</li>
+      <li><strong>TL zayıflaması</strong> ihracatçıya iyi gelir, ithalatçıya ve sabit ücretliye kötü.</li>
+      <li>Uzun vadeli değer kaybının hem <strong>yapısal</strong> (enerji bağımlılığı) hem <strong>politika</strong> (güven krizi) boyutu var.</li>
+      <li><strong>Dolarizasyon tuzağı:</strong> Bireysel korunma mantıklı, ama toplu hareket döngüyü kötüleştirir.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="next">
+  <div>
+    <div class="next-label">Sıradaki Kavram</div>
+    <div class="next-title">Risk Nedir — Volatilite mi, kayıp mı, fırsat maliyeti mi?</div>
+  </div>
+  <div class="next-arrow">→</div>
+</div>
+
+<div class="ft">
+  <div class="ft-brand">CAK · Kavram Dizisi #3 · Nisan 2026</div>
+  <div class="ft-disc">Kişisel araştırma notu.<br>Yatırım tavsiyesi değildir.</div>
+</div>
+
+</body>
+</html>
